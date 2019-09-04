@@ -15,25 +15,28 @@
 
 
     </div>
-    <canvas id="picture" width="900" height="600" style="border: #000 solid 1px;" />
+    <canvas id="picture" style="border: #000 solid 1px;" />
     <!-- <canvas id="picture" style="border: #000 solid 1px;" /> -->
 </div>
 <script language="javascript">
     let context = document.getElementById("picture").getContext("2d");
 
     let image = new Image();
-    image.src = "../img/proove.png";
+    image.src = "../img/proove1.png";
     image.onload = function() {
         drawImageMethod(this);
     }
 
     function drawImageMethod(image) {
+        let canvas = document.getElementById("picture");
+        canvas.width = image.width;
+        canvas.height = image.height;
         context.drawImage(image, 0, 0);
     }
 
     function clean() {
         let image = new Image();
-        image.src = "../img/proove.png";
+        image.src = "../img/proove1.png";
         image.onload = function() {
             drawImageMethod(this);
         }
@@ -41,7 +44,7 @@
 
     function filter() {
         let image = new Image();
-        image.src = "../img/proove.png";
+        image.src = "../img/proove1.png";
 
         image.onload = function() {
             drawImageMethod(this);
@@ -85,7 +88,7 @@
                     // green = 150;
                     // let blue = getBlue(imageData, i, j);
                     // blue = 150;
-                    setPixel(imageData, i, j, 255);
+                    setPixel(imageData, j, i, 255);
                 }
             }
 
