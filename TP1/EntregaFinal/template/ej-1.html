@@ -1,0 +1,132 @@
+<head>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <script language="javascript">
+
+        let row = 10;
+        let column = 10;
+
+        var principal_mat = [];
+        for (var i = 0; i < column; i++) {
+            principal_mat[i] = new Array(row);
+        }
+
+        function max_value() {
+            let max = 0;
+            let div = document.getElementById('result-a');
+            while (div.firstChild) {
+                div.removeChild(div.firstChild);
+            }
+            for (var i = 0; i < column; i++) {
+                for (var j = 0; j < row; j++) {
+                    if (principal_mat[i][j] > max) {
+                        max = principal_mat[i][j];
+                    }
+                }
+            }
+            var data = "<p>" + max + "</p>";
+            document.getElementById("result-a").innerHTML = data;
+            document.getElementById("result-a").style.opacity = 1;
+
+        }
+
+        function isOdd(num) {
+            return num % 2;
+        }
+
+        function max_rows() {
+            let div = document.getElementById('result-b');
+            while (div.firstChild) {
+                div.removeChild(div.firstChild);
+            }
+            let max_pair = 0;
+            let max_odd = 0;
+            let partial_pair = 0;
+            let partial_odd = 0;
+            for (var i = 0; i < row; i++) {
+                for (var j = 0; j < column; j++) {
+                    if (isOdd(i)) {
+                        partial_odd = partial_odd + principal_mat[i][j];
+                        if (j = column - 1) {
+                            if (partial_odd > max_odd) {
+                                max_odd = partial_odd;
+                            }
+                        }
+                    } else {
+                        partial_pair = partial_pair + principal_mat[i][j];
+                        if (j = column - 1) {
+                            if (partial_pair > max_pair) {
+                                max_pair = partial_pair;
+                            }
+                        }
+                    }
+                }
+            }
+            var data = "<p> Maximo filas impares: " + max_odd + "Maximo filas impares: " + max_pair + " </p>";
+            document.getElementById("result-b").innerHTML = data;
+            document.getElementById("result-b").style.opacity = 1;
+            // return 'Max odd: ' + max_odd + '////////' + 'Max pair: ' + max_pair;
+        }
+
+        function avg_rows() {
+            let avg_rows = [];
+            let div = document.getElementById('result-c');
+            while (div.firstChild) {
+                div.removeChild(div.firstChild);
+            }
+            for (var i = 0; i < column; i++) {
+                let partial_sum = 0;
+                for (var j = 0; j < row; j++) {
+                    partial_sum = partial_sum + principal_mat[i][j];
+                    if (j = row - 1) {
+                        let avg = partial_sum / row;
+                        avg_rows.push(avg);
+                    }
+                }
+            }
+            var data = "<p> El promedio es: " + avg_rows + " </p>";
+            console.log(data);
+            document.getElementById("result-c").innerHTML = data;
+            document.getElementById("result-c").style.opacity = 1;
+        }
+
+        // Se carga como una matriz comun (por magia de javascript)
+        for (var i = 0; i < column; i++) {
+            for (var j = 0; j < row; j++) {
+                principal_mat[i][j] = Math.random();
+            }
+        }
+
+    </script>
+
+</head>
+
+
+<div class="container">
+    <div class="head">
+        <div class="nav">
+            <button><a href="../index.html" target="_self">Atras</a> </button>
+            <h1>Ejercicio 1</h1>
+        </div>
+
+        <div class="inc-a">
+            <h2>a</h2>
+            <button onclick="max_value()">Resultado</button>
+            <div id="result-a">
+            </div>
+        </div>
+        <div class="inc-b">
+            <h2>b</h2>
+            <button onclick="max_rows()">Resultado</button>
+            <div id="result-b">
+            </div>
+        </div>
+        <div class="inc-c">
+            <h2>c</h2>
+            <button onclick="avg_rows()">Resultado</button>
+            <div id="result-c">
+            </div>
+        </div>
+    </div>
+    <!-- <canvas id="picture" style="border: #000 solid 1px;" /> -->
+</div>

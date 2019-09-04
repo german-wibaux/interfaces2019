@@ -1,0 +1,96 @@
+<head>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<div class="container">
+    <div class="head">
+        <div class="nav">
+            <button><a href="../index.html" target="_self">Atras</a> </button>
+            <h1>Ejercicio 6</h1>
+            <button onclick="clean();">Limpiar</button>
+            <button onclick="filter();">Filtro</button>
+        </div>
+
+
+    </div>
+    <canvas id="picture" width="900" height="600" style="border: #000 solid 1px;" />
+    <!-- <canvas id="picture" style="border: #000 solid 1px;" /> -->
+</div>
+<script language="javascript">
+    let context = document.getElementById("picture").getContext("2d");
+
+    let image = new Image();
+    image.src = "../img/proove.png";
+    image.onload = function() {
+        drawImageMethod(this);
+    }
+
+    function drawImageMethod(image) {
+        context.drawImage(image, 0, 0);
+    }
+
+    function clean() {
+        let image = new Image();
+        image.src = "../img/proove.png";
+        image.onload = function() {
+            drawImageMethod(this);
+        }
+    }
+
+    function filter() {
+        let image = new Image();
+        image.src = "../img/proove.png";
+
+        image.onload = function() {
+            drawImageMethod(this);
+
+            imageData = context.getImageData(0, 0, this.width, this.height);
+
+            function setPixel(imageData, x, y, a) {
+                ind = (x + y * imageData.width) * 4;
+
+                imageData.data[ind + 3] = a;
+                let r = getRed(imageData, x, y);
+                let g = getGreen(imageData, x, y);
+                let b = getBlue(imageData, x, y);
+                let colour = (r + g + b) / 3;
+                imageData.data[ind + 0] = colour;
+                imageData.data[ind + 1] = colour;
+                imageData.data[ind + 2] = colour;
+                // r = r;
+            }
+
+            function getRed(imagedata, x, y) {
+                ind = (x + y * imagedata.width) * 4;
+                return imagedata.data[ind + 0];
+            }
+
+            function getGreen(imagedata, x, y) {
+                ind = (x + y * imagedata.width) * 4;
+                return imagedata.data[ind + 1];
+            }
+
+            function getBlue(imagedata, x, y) {
+                ind = (x + y * imagedata.width) * 4;
+                return imagedata.data[ind + 2];
+            }
+
+            for (var i = 0; i < imageData.height; i++) {
+                for (var j = 0; j < imageData.width; j++) {
+                    // let red = getRed(imageData, i, j);
+
+                    // let green = getGreen(imageData, i, j);
+                    // green = 150;
+                    // let blue = getBlue(imageData, i, j);
+                    // blue = 150;
+                    setPixel(imageData, i, j, 255);
+                }
+            }
+
+            context.putImageData(imageData, 0, 0);
+
+        }
+    }
+</script>
