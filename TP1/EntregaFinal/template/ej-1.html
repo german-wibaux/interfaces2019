@@ -2,12 +2,18 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <script language="javascript">
-        let row = 10;
-        let column = 10;
-
+        let row = 100;
+        let column = 100;
         var principal_mat = [];
+
         for (var i = 0; i < column; i++) {
             principal_mat[i] = new Array(row);
+        }
+
+        for (var i = 0; i < column; i++) {
+            for (var j = 0; j < row; j++) {
+                principal_mat[i][j] = Math.random();
+            }
         }
 
         function max_value() {
@@ -23,7 +29,7 @@
                     }
                 }
             }
-            var data = "<p>" + max + "</p>";
+            var data = "<p> El valor maximo es: " + max + "</p>";
             document.getElementById("result-a").innerHTML = data;
             document.getElementById("result-a").style.opacity = 1;
 
@@ -61,10 +67,9 @@
                     }
                 }
             }
-            var data = "<p> Maximo filas impares: " + max_odd + "Maximo filas impares: " + max_pair + " </p>";
+            var data = "<p> Maximo filas impares: " + max_odd + "<br>" + "Maximo filas impares: " + max_pair + " </p>";
             document.getElementById("result-b").innerHTML = data;
             document.getElementById("result-b").style.opacity = 1;
-            // return 'Max odd: ' + max_odd + '////////' + 'Max pair: ' + max_pair;
         }
 
         function avg_rows() {
@@ -83,17 +88,15 @@
                     }
                 }
             }
-            var data = "<p> El promedio es: " + avg_rows + " </p>";
-            console.log(data);
-            document.getElementById("result-c").innerHTML = data;
-            document.getElementById("result-c").style.opacity = 1;
-        }
 
-        // Se carga como una matriz comun (por magia de javascript)
-        for (var i = 0; i < column; i++) {
-            for (var j = 0; j < row; j++) {
-                principal_mat[i][j] = Math.random();
+
+            var data1 = "<p>";
+            for (let i = 0; i < avg_rows.length; i++) {
+                data1 = data1 + "Fila " + i + ": " + avg_rows[i] + "<br>";
             }
+            data1 = data1 + "</p>";
+            document.getElementById("result-c").innerHTML = data1;
+            document.getElementById("result-c").style.opacity = 1;
         }
     </script>
 

@@ -25,37 +25,7 @@
         imageData.data[ind + 3] = a;
     }
 
-    // function setPixel3(imageData, x, y, g, a) {
-    //     ind = (x + y * imageData.width) * 4;
-    //     imageData.data[ind + 0] = 255;
-    //     imageData.data[ind + 1] = g;
-    //     imageData.data[ind + 2] = 0;
-    //     imageData.data[ind + 3] = a;
-    // }
-
-
-
-    // for (var i = 0; i < width / 2; i++) {
-
-    //     for (var j = 0; j < height; j++) {
-    //         if (i <= width / 2) {
-    //             let colour = (i / (width / 2)) * 255;
-    //             setPixel2(image_cre2, i, j, colour, colour, 255);
-    //         }
-    //     }
-    // }
-
-    // for (var i = width / 2; i < width; i++) {
-    //     for (var j = 0; j < height; j++) {
-    //         let colour = ((width / 2) / i * 255);
-    //         setPixel3(image_cre2, i, j, colour, 255);
-    //     }
-    // }
-    let context = document.getElementById("picture").getContext("2d");
-    let canvas = document.getElementById("picture");
-    let image_cre2 = context.createImageData(canvas.width, canvas.height);
-
-    function degradePosta(imageData) {
+    function degrade(imageData) {
         let width = canvas.width;
         let height = canvas.height;
         for (let h = 0; h < height; h++) {
@@ -72,7 +42,10 @@
         }
     }
 
-    this.degradePosta(image_cre2);
+    let context = document.getElementById("picture").getContext("2d");
+    let canvas = document.getElementById("picture");
+    let image_cre2 = context.createImageData(canvas.width, canvas.height);
 
+    this.degrade(image_cre2);
     context.putImageData(image_cre2, 0, 0);
 </script>

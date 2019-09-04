@@ -14,12 +14,11 @@
 
     </div>
     <canvas id="picture" width="900" height="600" style="border: #000 solid 1px;" />
-    <!-- <canvas id="picture" style="border: #000 solid 1px;" /> -->
 </div>
 <script language="javascript">
     let canvas = document.getElementById("picture");
     let context = document.getElementById("picture").getContext("2d");
-    // degrade 
+
 
     let image_cre1 = context.createImageData(canvas.width, canvas.height);
 
@@ -34,12 +33,14 @@
     let width = canvas.width;
     let height = canvas.height;
 
-    for (var i = 0; i < height; i++) {
-        let colour = i / height * 255;
-        for (var j = 0; j < width; j++) {
-
-            setPixel1(image_cre1, j, i, colour, colour, colour, 255);
+    function degrade(imageData) {
+        for (var i = 0; i < height; i++) {
+            let colour = i / height * 255;
+            for (var j = 0; j < width; j++) {
+                setPixel1(image_cre1, j, i, colour, colour, colour, 255);
+            }
         }
     }
+    this.degrade(image_cre1);
     context.putImageData(image_cre1, 0, 0);
 </script>

@@ -17,13 +17,11 @@
     <!-- <canvas id="picture" style="border: #000 solid 1px;" /> -->
 </div>
 <script language="javascript">
-    let context = document.getElementById("picture").getContext("2d");
-    let canvas = document.getElementById("picture");
-    let image_cre = context.createImageData(canvas.width, canvas.height);
-
-    for (var i = 0; i < canvas.width; i++) {
-        for (var j = 0; j < canvas.height; j++) {
-            setPixel(image_cre, i, j, 100, 100, 100, 100);
+    function paint(imageData) {
+        for (var i = 0; i < canvas.width; i++) {
+            for (var j = 0; j < canvas.height; j++) {
+                setPixel(image_cre, i, j, 100, 100, 100, 100);
+            }
         }
     }
 
@@ -35,5 +33,10 @@
         imageData.data[ind + 3] = a;
     }
 
+    let context = document.getElementById("picture").getContext("2d");
+    let canvas = document.getElementById("picture");
+    let image_cre = context.createImageData(canvas.width, canvas.height);
+
+    this.paint(image_cre);
     context.putImageData(image_cre, 0, 0);
 </script>
