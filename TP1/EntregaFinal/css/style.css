@@ -48,8 +48,8 @@ a {
     width: 100%;
 }
 
-
-/* #picture {
-    width: 75%;
-    height: 75%;
-} */
+.button {
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly;
+}
