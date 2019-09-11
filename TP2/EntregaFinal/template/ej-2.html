@@ -1,0 +1,114 @@
+<head>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<div class="container">
+    <div class="head">
+        <div class="nav">
+            <button><a href="../index.html" target="_self">Atras</a> </button>
+            <h1>Ejercicio 2</h1>
+        </div>
+
+
+    </div>
+    <canvas id="picture" width="900" height="600" style="border: #000 solid 1px;" />
+    <!-- <canvas id="picture" style="border: #000 solid 1px;" /> -->
+</div>
+<script language="javascript">
+    var circle, isDown, origX, origY;
+    let canvas = document.getElementById("picture");
+    let context = document.getElementById("picture").getContext("2d");
+    // document.getElementById("picture").addEventListener("mousedown", circle, false);
+    // document.getElementById("picture").addEventListener("mousemove", draw, false);
+    // document.getElementById("picture").addEventListener("mouseup", down, false);
+    var height = canvas.height = window.innerHeight;
+    var width = canvas.width = window.innerWidth;
+    var mouseClicked = false;
+    var mouseReleased = true;
+    document.addEventListener("click", getPosition, false);
+
+    // Event will be a click event which can be retrieved as first parameter in the addEventListener(function(event){}); or in jQuery with $("selector").click(function(event){});
+    function getPosition(event) {
+        var rect = canvas.getBoundingClientRect();
+        var x = event.clientX - rect.left; // x == the location of the click in the document - the location (relative to the left) of the canvas in the document
+        var y = event.clientY - rect.top; // y == the location of the click in the document - the location (relative to the top) of the canvas in the document
+
+        // This method will handle the coordinates and will draw them in the canvas.
+        drawCoordinates(x, y);
+    }
+
+    function drawCoordinates(x, y) {
+        var pointSize = 5; // Change according to the size of the point.
+        // var ctx = document.getElementById("canvas").getContext("2d");
+
+
+        context.fillStyle = "#e60000"; //
+
+        context.beginPath(); //Start path
+        context.arc(x, y, pointSize, 0, Math.PI * 2, true); // Draw a point using the arc function of the canvas with a point structure.
+        context.fill(); // Close the path and fill.
+    }
+
+    // document.addEventListener("mousemove", onMouseMove, false);
+
+    // function onMouseClick(e) {
+    //     context.beginPath();
+    //     context.arc(e.clientX, e.clientY, 10.0, 0, Math.PI * 2, false);
+    //     context.lineWidth = 5;
+    //     context.strokeStyle = getRandomColor();
+    //     context.stroke();
+    // }
+
+    // function onMouseMove(e) {
+    //     if (mouseClicked) {
+    //         context.beginPath();
+    //         context.arc(e.clientX, e.clientY, 7.5, 0, Math.PI * 2, false);
+    //         context.lineWidth = 5;
+    //         context.strokeStyle = getRandomColor();
+    //         context.stroke();
+    //     }
+    // }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // function circle(o) {
+    //     isDown = true;
+    //     var pointer = canvas.getPointer(o.e);
+    //     origX = pointer.x;
+    //     origY = pointer.y;
+    //     circle = new fabric.Circle({
+    //         left: pointer.x,
+    //         top: pointer.y,
+    //         radius: 1,
+    //         strokeWidth: 5,
+    //         stroke: 'red',
+    //         selectable: false,
+    //         originX: 'center',
+    //         originY: 'center'
+    //     });
+    //     console.log(circle);
+    //     canvas.add(circle);
+    // };
+
+    // function draw(o) {
+    //     if (!isDown) return;
+    //     var pointer = canvas.getPointer(o.e);
+    //     circle.set({
+    //         radius: Math.abs(origX - pointer.x)
+    //     });
+    //     canvas.renderAll();
+    // };
+
+    // function down(o) {
+    //     isDown = false;
+    // };
+</script>

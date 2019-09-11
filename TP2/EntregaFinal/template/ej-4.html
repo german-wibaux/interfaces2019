@@ -1,0 +1,46 @@
+<head>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<div class="container">
+    <div class="head">
+        <div class="nav">
+            <button><a href="../index.html" target="_self">Atras</a> </button>
+            <h1>Ejercicio 4</h1>
+        </div>
+
+
+    </div>
+    <canvas id="picture" width="900" height="600" style="border: #000 solid 1px;" />
+</div>
+<script language="javascript">
+    let canvas = document.getElementById("picture");
+    let context = document.getElementById("picture").getContext("2d");
+
+
+    let image_cre1 = context.createImageData(canvas.width, canvas.height);
+
+    function setPixel1(imageData, x, y, r, g, b, a) {
+        ind = (x + y * imageData.width) * 4;
+        imageData.data[ind + 0] = r;
+        imageData.data[ind + 1] = g;
+        imageData.data[ind + 2] = b;
+        imageData.data[ind + 3] = a;
+    }
+
+    let width = canvas.width;
+    let height = canvas.height;
+
+    function degrade(imageData) {
+        for (var i = 0; i < height; i++) {
+            let colour = i / height * 255;
+            for (var j = 0; j < width; j++) {
+                setPixel1(image_cre1, j, i, colour, colour, colour, 255);
+            }
+        }
+    }
+    this.degrade(image_cre1);
+    context.putImageData(image_cre1, 0, 0);
+</script>

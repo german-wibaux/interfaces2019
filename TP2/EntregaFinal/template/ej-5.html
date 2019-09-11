@@ -1,0 +1,51 @@
+<head>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<div class="container">
+    <div class="head">
+        <div class="nav">
+            <button><a href="../index.html" target="_self">Atras</a> </button>
+            <h1>Ejercicio 5</h1>
+        </div>
+
+
+    </div>
+    <canvas id="picture" width="900" height="600" style="border: #000 solid 1px;" />
+    <!-- <canvas id="picture" style="border: #000 solid 1px;" /> -->
+</div>
+<script language="javascript">
+    function setPixel(imageData, x, y, r, g, a) {
+        ind = (x + y * imageData.width) * 4;
+        imageData.data[ind + 0] = r;
+        imageData.data[ind + 1] = g;
+        imageData.data[ind + 2] = 0;
+        imageData.data[ind + 3] = a;
+    }
+
+    function degrade(imageData) {
+        let width = canvas.width;
+        let height = canvas.height;
+        for (let h = 0; h < height; h++) {
+            for (let w = 0; w <= width / 2; w++) {
+                let colour = (w / (width / 2)) * 255;
+                setPixel(imageData, w, h, colour, colour, 255);
+            }
+            let half = width / 2;
+            for (let w = width / 2 + 1; w <= width; w++) {
+                let colour = (half / (width / 2)) * 255;
+                setPixel(imageData, w, h, 255, colour, 255);
+                half--;
+            }
+        }
+    }
+
+    let context = document.getElementById("picture").getContext("2d");
+    let canvas = document.getElementById("picture");
+    let image_cre2 = context.createImageData(canvas.width, canvas.height);
+
+    this.degrade(image_cre2);
+    context.putImageData(image_cre2, 0, 0);
+</script>
