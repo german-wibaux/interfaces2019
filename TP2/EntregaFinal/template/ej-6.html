@@ -8,154 +8,91 @@
     <div class="head">
         <div class="nav">
             <button><a href="../index.html" target="_self">Atras</a> </button>
-            <h1>Ejercicio 6</h1>
+            <button id="close">Cerrar poligono</button>
+            <h1>Ejercicio 5</h1>
         </div>
 
 
     </div>
-    <div class="container">
-        <div class="button">
-            <button id="but1">Imagen 1</button>
-            <button id="but2">Imagen 2</button>
-            <button id="but3">Imagen 3</button>
-            <button id="but4">Imagen 4</button>
-        </div>
-        <div class="cleaner">
-            <button id="cle1">Limpiar imagen 1</button>
-            <button id="cle2">Limpiar imagen 2</button>
-            <button id="cle3">Limpiar imagen 3</button>
-            <button id="cle4">Limpiar imagen 4</button>
-        </div>
-    </div>
-    <canvas id="picture" />
+    <canvas id="picture" width="900" height="600" style="border: #000 solid 1px;" draggable="true" />
+    <!-- <canvas id="picture" style="border: #000 solid 1px;" /> -->
 </div>
 <script language="javascript">
+    var circle, isDown, origX, origY;
+    var coords = [];
+    let canvas = document.getElementById("picture");
     let context = document.getElementById("picture").getContext("2d");
-    let but_1 = document.getElementById("but1");
-    let cle_1 = document.getElementById("cle1");
-    let but_2 = document.getElementById("but2");
-    let cle_2 = document.getElementById("cle2");
-    let but_3 = document.getElementById("but3");
-    let cle_3 = document.getElementById("cle3");
-    let but_4 = document.getElementById("but4");
-    let cle_4 = document.getElementById("cle4");
+    var height = canvas.height = window.innerHeight;
+    var width = canvas.width = window.innerWidth;
+    var mouseClicked = false;
+    var mouseReleased = true;
+    canvas.addEventListener("click", getPosition, false);
+    document.getElementById("close").addEventListener("click", closePolygon, false);
 
-    but_1.onclick = function() {
-        let image = new Image();
-        image.src = "../img/aeroplane.jpeg";
-        image.onload = function() {
-            drawImageMethod(image);
-            filter(image.src);
+    // Event will be a click event which can be retrieved as first parameter in the addEventListener(function(event){}); or in jQuery with $("selector").click(function(event){});
+    function getPosition(event) {
+        var rect = canvas.getBoundingClientRect();
+        var x = event.clientX - rect.left; // x == the location of the click in the document - the location (relative to the left) of the canvas in the document
+        var y = event.clientY - rect.top; // y == the location of the click in the document - the location (relative to the top) of the canvas in the document
+
+        // This method will handle the coordinates and will draw them in the canvas.
+        drawCoordinates(x, y);
+    }
+
+    function closePolygon() {
+        var curr = coords[coords.length - 1],
+            prev = coords[0];
+        context.beginPath();
+        context.strokeStyle = "#ffff00";
+        context.moveTo(prev.x, prev.y);
+        context.lineTo(curr.x, curr.y);
+        context.stroke();
+        drawCenter();
+    }
+
+    function drawCenter() {
+        let x = 0;
+        let y = 0;
+        for (var i = 0; i < coords.length; i++) {
+            let coord = coords[i];
+            x = x + coord.x;
+            y = y + coord.y;
         }
+        x = x / coords.length;
+        y = y / coords.length;
+        context.fillStyle = "#33cc33"; //
+        var pointSize = 3.5;
+        context.beginPath(); //Start path
+        context.arc(x, y, pointSize, 0, Math.PI * 2, true); // Draw a point using the arc function of the canvas with a point structure.
+        context.fill(); // Close the path and fill.
+        coords = [];
     }
 
-    cle_1.onclick = function() {
-        clean("../img/aeroplane.jpeg");
-    }
+    function drawCoordinates(x, y) {
+        var pointSize = 5; // Change according to the size of the point.
+        // var ctx = document.getElementById("canvas").getContext("2d");
 
-    but_2.onclick = function() {
-        let image = new Image();
-        image.src = "../img/balca.jpeg";
-        drawImageMethod(image);
-        image.onload = function() {
 
-            filter(image.src);
-        }
-    }
+        context.fillStyle = "#e60000"; //
 
-    cle_2.onclick = function() {
-        clean("../img/balca.jpeg");
-    }
-
-    but_3.onclick = function() {
-        let image = new Image();
-        image.src = "../img/fishing.jpeg";
-        drawImageMethod(image);
-        image.onload = function() {
-
-            filter(image.src);
-        }
-    }
-
-    cle_3.onclick = function() {
-        clean("../img/fishing.jpeg");
-    }
-
-    but_4.onclick = function() {
-        let image = new Image();
-        image.src = "../img/tree.jpeg";
-        drawImageMethod(image);
-        image.onload = function() {
-
-            filter(image.src);
-        }
-    }
-
-    cle_4.onclick = function() {
-        clean("../img/tree.jpeg");
-    }
-
-    function clean(_src) {
-        let image = new Image();
-        image.src = _src;
-        image.onload = function() {
-            drawImageMethod(image);
-        }
-    }
-
-    function drawImageMethod(image) {
-        let canvas = document.getElementById("picture");
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        canvas.width = image.width;
-        canvas.height = image.height;
-        context.drawImage(image, 0, 0);
-    }
-
-    function filter(_src) {
-        let image = new Image();
-        image.src = _src;
-
-        image.onload = function() {
-            drawImageMethod(this);
-
-            imageData = context.getImageData(0, 0, this.width, this.height);
-
-            function setPixel(imageData, x, y, a) {
-                ind = (x + y * imageData.width) * 4;
-
-                imageData.data[ind + 3] = a;
-                let r = getRed(imageData, x, y);
-                let g = getGreen(imageData, x, y);
-                let b = getBlue(imageData, x, y);
-                let colour = (r + g + b) / 3;
-                imageData.data[ind + 0] = colour;
-                imageData.data[ind + 1] = colour;
-                imageData.data[ind + 2] = colour;
-            }
-
-            function getRed(imagedata, x, y) {
-                ind = (x + y * imagedata.width) * 4;
-                return imagedata.data[ind + 0];
-            }
-
-            function getGreen(imagedata, x, y) {
-                ind = (x + y * imagedata.width) * 4;
-                return imagedata.data[ind + 1];
-            }
-
-            function getBlue(imagedata, x, y) {
-                ind = (x + y * imagedata.width) * 4;
-                return imagedata.data[ind + 2];
-            }
-
-            for (var i = 0; i < imageData.height; i++) {
-                for (var j = 0; j < imageData.width; j++) {
-                    setPixel(imageData, j, i, 255);
-                }
-            }
-
-            context.putImageData(imageData, 0, 0);
-
+        context.beginPath(); //Start path
+        context.arc(x, y, pointSize, 0, Math.PI * 2, true); // Draw a point using the arc function of the canvas with a point structure.
+        context.fill(); // Close the path and fill.
+        var coord = {
+            "x": x,
+            "y": y
+        };
+        //document.getElementById("coords").innerText = "{" + coord.x + ", " + coord.y + "}";
+        coords.push(coord);
+        var max = coords.length - 1;
+        if (typeof coords[max - 1] !== "undefined") {
+            var curr = coords[max],
+                prev = coords[max - 1];
+            context.beginPath();
+            context.strokeStyle = "#ffff00";
+            context.moveTo(prev.x, prev.y);
+            context.lineTo(curr.x, curr.y);
+            context.stroke();
         }
     }
 </script>
