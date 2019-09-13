@@ -90,7 +90,7 @@ function deletePoint(e) {
     for (let i = 0; i < shapes.length; i++) {
         let shape = shapes[i];
         for (let j = 0; j < shape.getQtyPoints(); j++) {
-            let point = shape.getPointPos(i);
+            let point = shape.getPointPos(j);
             if (position[0] > point.getX() - point.getRadius() && position[0] < point.getX() + point.getRadius() &&
                 position[1] > point.getY() - point.getRadius() && position[1] < point.getY() + point.getRadius()) {
 
