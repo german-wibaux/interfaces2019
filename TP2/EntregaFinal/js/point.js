@@ -5,6 +5,7 @@ class Point {
         this.radius = radius;
         this.colour = colour;
         this.drawPoint(ctx);
+        this.dragging = false;
     }
 
     setX(x) {
@@ -13,6 +14,14 @@ class Point {
 
     setY(y) {
         this.y = y;
+    }
+
+    setDragging(value) {
+        this.dragging = value;
+    }
+
+    isDragging() {
+        return this.dragging;
     }
 
     getX() {
@@ -31,17 +40,6 @@ class Point {
         ctx.beginPath(); //Start path
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true); // Draw a point using the arc function of the canvas with a point structure.
         ctx.fill(); // Close the path and fill.
-    }
-
-    clickInside(x, y) {
-        var dx = Math.abs(x - this.posX);
-        var dy = Math.abs(y - this.posY);
-        var distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
-        if (distance <= this.radio) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
 }

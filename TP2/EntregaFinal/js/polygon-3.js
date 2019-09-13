@@ -32,19 +32,6 @@ class Polygon {
         }
     }
 
-    drawCenter(ctx) {
-        let x = 0;
-        let y = 0;
-        for (let i = 0; i < this.points.length; i++) {
-            let point = this.points[i];
-            x = x + point.getX();
-            y = y + point.getY();
-        }
-        x = x / this.points.length;
-        y = y / this.points.length;
-        let point = new Point(x, y, 3.5, "#00b33c", ctx);
-        this.center = point;
-    }
 
     close(ctx) {
         let curr = this.points[this.points.length - 1],
@@ -54,7 +41,6 @@ class Polygon {
         ctx.moveTo(prev.x, prev.y);
         ctx.lineTo(curr.x, curr.y);
         ctx.stroke();
-        this.drawCenter(ctx);
         this.closed = true;
     }
 

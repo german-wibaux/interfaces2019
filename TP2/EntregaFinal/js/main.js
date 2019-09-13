@@ -6,7 +6,8 @@ var mouseClicked = false;
 var mouseReleased = true;
 canvas.addEventListener("click", addPoint, false);
 document.getElementById("close").addEventListener("click", closePolygon, false);
-
+document.addEventListener("keydown", changeBackground);
+canvas.addEventListener('dblclick', deletePoint, false);
 // General variables of the estructures
 let shapes = [];
 let polygon = new Polygon();
@@ -18,6 +19,11 @@ let dragok = false;
 let startX;
 let startY;
 let shapeDrag;
+
+let dragPoint = false;
+let startXpoint;
+let startYpoint;
+let pointDrag;
 
 // listen for mouse events
 canvas.onmousedown = myDown;
@@ -34,7 +40,7 @@ function myDown(e) {
     // get the current mouse position
     position = getPosition(e);
 
-    // test each rect to see if mouse is inside
+    // test each shape center to see if mouse is inside
     dragok = false;
     for (let i = 0; i < shapes.length; i++) {
         let shape = shapes[i];
@@ -43,11 +49,29 @@ function myDown(e) {
 
             if (position[0] > center[0] && position[0] < center[0] + center[2] &&
                 position[1] > center[1] && position[1] < center[1] + center[2]) {
-                // if yes, set that rects isDragging=true
+                // if yes, set that shapes isDragging=true
                 dragok = true;
                 shape.setDragging(true);
                 shapeDrag = shape;
             }
+
+
+            for (let i = 0; i < shape.getQtyPoints(); i++) {
+                let point = shape.getPointPos(i);
+
+                if (position[0] > point.getX() - point.getRadius() && position[0] < point.getX() + point.getRadius() &&
+                    position[1] > point.getY() - point.getRadius() && position[1] < point.getY() + point.getRadius()) {
+
+                    dragPoint = true;
+                    point.setDragging(true);
+                    pointDrag = point;
+                    // save the current mouse position
+                    startXpoint = position[0];
+                    startYpoint = position[1];
+                }
+
+            }
+
         }
     }
     // save the current mouse position
@@ -55,9 +79,52 @@ function myDown(e) {
     startY = position[1];
 }
 
+function changeBackground(e) {
+    if (e.keyCode == 67) {
+        document.addEventListener("wheel", newColours);
+    }
+}
+
+function deletePoint(e) {
+    position = getPosition(e);
+    for (let i = 0; i < shapes.length; i++) {
+        let shape = shapes[i];
+        for (let j = 0; j < shape.getQtyPoints(); j++) {
+            let point = shape.getPointPos(i);
+            if (position[0] > point.getX() - point.getRadius() && position[0] < point.getX() + point.getRadius() &&
+                position[1] > point.getY() - point.getRadius() && position[1] < point.getY() + point.getRadius()) {
+
+                shape.deletePointPos(j);
+                draw();
+            }
+        }
+
+    }
+}
+
+function newColours(e) {
+    if (e.deltaY < 0) {
+        // console.log('scrolling up');
+        // document.getElementById('status').textContent = 'scrolling up';
+        let shape = shapes[0];
+        let point = shape.getPointPos(0);
+        let imageData = context.getImageData(0, 0, width, height);
+
+        // console.log(getGreen(imageData, point.getX(), point.getY()));
+    } else if (e.deltaY > 0) {
+        // console.log('scrolling down');
+        // document.getElementById('status').textContent = 'scrolling down';
+    }
+}
+
+function getGreen(imageData, x, y) {
+    index = (x + y * imageData.width) * 4;
+    return imageData.data[index + 1];
+}
+
 // handle mouse moves
 function myMove(e) {
-    // if we're dragging anything...
+    // if we're dragging shape
     if (dragok) {
 
         // tell the browser we're handling this mouse event
@@ -72,7 +139,7 @@ function myMove(e) {
         let dx = position[0] - startX;
         let dy = position[1] - startY;
 
-        // move each rect that isDragging 
+        // move each shape that isDragging 
         // by the distance the mouse has moved
         // since the last mousemove
 
@@ -91,7 +158,7 @@ function myMove(e) {
             shapeDrag.setCenter(x, y);
         }
 
-        // redraw the scene with the new rect positions
+        // redraw the scene with the new shape positions
         draw();
 
         // reset the starting mouse position for the next mousemove
@@ -99,6 +166,43 @@ function myMove(e) {
         startY = position[1];
 
     }
+
+    // if we're dragging point
+    if (dragPoint) {
+
+        // tell the browser we're handling this mouse event
+        e.preventDefault();
+        e.stopPropagation();
+
+        // get the current mouse position
+        position = getPosition(e);
+
+        // calculate the distance the mouse has moved
+        // since the last mousemove
+        let dx = position[0] - startXpoint;
+        let dy = position[1] - startYpoint;
+
+        // move each point that isDragging 
+        // by the distance the mouse has moved
+        // since the last mousemove
+
+
+        if (pointDrag.isDragging()) {
+            x = pointDrag.getX() + dx;
+            y = pointDrag.getY() + dy;
+            pointDrag.setX(x);
+            pointDrag.setY(y);
+        }
+
+        // redraw the scene with the new shape positions
+        draw();
+
+        // reset the starting mouse position for the next mousemove
+        startXpoint = position[0];
+        startYpoint = position[1];
+
+    }
+
 }
 
 // handle mouseup events
@@ -109,9 +213,19 @@ function myUp(e) {
 
     // clear all the dragging flags
     dragok = false;
+    dragPoint = false;
     for (let i = 0; i < shapes.length; i++) {
         shapes[i].setDragging(false);
     }
+
+    for (let i = 0; i < shapes.length; i++) {
+        let shape = shapes[i];
+        for (let i = 0; i < shape.getQtyPoints(); i++) {
+            shape.getPointPos(i).setDragging(false);
+        }
+
+    }
+
 }
 
 // clear the canvas
@@ -119,19 +233,20 @@ function clear() {
     context.clearRect(0, 0, width, height);
 }
 
-// redraw the scene
+//Redraw the scene
 function draw() {
     clear();
-    // redraw each rect in the rects[] array
+    // redraw each shape in the shapes[] array
     for (let i = 0; i < shapes.length; i++) {
         let shape = shapes[i];
         shape.draw(context);
     }
 }
 
+//Canvas add point
 function addPoint(event) {
     let points = getPosition(event);
-    if (!overlapCenter(points)) {
+    if (!overlapCenter(points) && !overlapPoint(points)) {
         let shape = shapes[currShape];
         if (!shape.isClosed()) {
             let point = new Point(points[0], points[1], 5, "#e60000", context);
@@ -143,8 +258,6 @@ function addPoint(event) {
             addPoint(event);
         }
     }
-
-
 }
 
 function overlapCenter(points) {
@@ -164,7 +277,34 @@ function overlapCenter(points) {
             let center = setCenter[i];
             if (points[0] > center[0] && points[0] < center[0] + center[2] &&
                 points[1] > center[1] && points[1] < center[1] + center[2]) {
-                // if yes, set that rects isDragging=true
+                // if yes, set that shapes isDragging=true
+                isvalid = true;
+            }
+        }
+    }
+
+    return isvalid;
+}
+
+function overlapPoint(points) {
+    let setPoints = [];
+    let isvalid = false;
+    for (let i = 0; i < shapes.length; i++) {
+        let shape = shapes[i];
+
+        if (shape.isClosed()) {
+            for (let i = 0; i < shape.getQtyPoints(); i++) {
+                let point = shape.getPointPos(i);
+                setPoints.push(point);
+            }
+        }
+    }
+    if (setPoints[0] !== "undefined") {
+        for (let i = 0; i < setPoints.length; i++) {
+            let point = setPoints[i];
+            if (points[0] > point.getX() && points[0] < point.getX() + point.getRadius() &&
+                points[1] > point.getY() && points[1] < point.getY() + point.getRadius()) {
+                // if yes, set that shapes isDragging=true
                 isvalid = true;
             }
         }
