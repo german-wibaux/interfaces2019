@@ -1,0 +1,229 @@
+.contain-horse {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    background-color: rgba(255, 170, 154, 1);
+}
+
+.horse {
+    width: 70%;
+    height: 100%;
+    background: url(../images/galope.png) no-repeat left center;
+    animation: play 0.8s steps(6) infinite;
+}
+
+@keyframes play {
+    100% {
+        background-position: -2150px;
+    }
+}
+
+@keyframes move {
+    from {
+        background-position: -2150px;
+    }
+    to {}
+}
+
+@keyframes sec {
+    0% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+    25% {
+        background-color: yellow;
+        left: 200px;
+        top: 0px;
+    }
+    50% {
+        background-color: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background-color: green;
+        left: 0px;
+        top: 200px;
+    }
+    100% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+}
+
+.animation {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    animation-name: sec;
+    animation-duration: 4s;
+}
+
+#hour,
+#min,
+#seg {
+    transform: rotate(0deg);
+    transform-origin: bottom;
+}
+
+.center {
+    background: transparent url(../images/centro.svg) no-repeat center center;
+    background-size: contain;
+    width: 7%;
+    height: 7%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+}
+
+.clock {
+    background: #fff url(../images/reloj.svg) no-repeat center center;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.5s
+}
+
+.aguja-min {
+    background: transparent url(../images/agujaMin.svg) no-repeat center center;
+    background-size: contain;
+    width: 5%;
+    height: 18%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 8rem;
+}
+
+.aguja-hor {
+    background: transparent url(../images/agujaHora.svg) no-repeat center center;
+    background-size: contain;
+    width: 5%;
+    height: 18%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 8.5rem;
+}
+
+.aguja-seg {
+    background: transparent url(../images/agujaSeg.svg) no-repeat center center;
+    background-size: contain;
+    width: 2%;
+    height: 18%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 8rem;
+}
+
+.ball_1 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(255, 170, 154, 1);
+    /*transition-property: width, height;*/
+    transition-duration: 1s;
+    /*transtion-delay: 1s;*/
+    transition-timing-function: ease;
+}
+
+.ball_1:hover {
+    width: 200px;
+    height: 200px;
+}
+
+.rect {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 170, 154, 1);
+    /*transition-property: width, height;*/
+    /*transtion-delay: 1s;*/
+    transition-timing-function: ease;
+    top: 50px;
+    left: 50%;
+    transform: translate(calc(var(--mouse-x, 0) * 100%), calc(var(--mouse-y, 0) * 100%));
+}
+
+.contain-rect {
+    height: 100%;
+    background-color: #6c4c75;
+}
+
+.contain-ball,
+.contain-clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #6c4c75;
+}
+
+.exercises {
+    height: 35rem;
+}
+
+.exercises>.container {
+    height: 100%;
+}
+
+.exercises>.container>.row {
+    height: 70%;
+}
+
+nav {
+    background-color: #6c4c75;
+    padding: 35px;
+}
+
+h1,
+h2 {
+    margin-top: 100px;
+}
+
+#buttonGrayScale,
+#buttonColour,
+#buttonCloseFigure,
+#buttonCleanCanvas {
+    padding: 25px;
+    background-color: rgba(255, 170, 154, 1);
+    margin: 1px;
+}
+
+a,
+span,
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgba(255, 170, 154, 1);
+}
+
+footer {
+    padding: 45px;
+    margin-top: 100px;
+    background-color: rgba(255, 170, 154, 1);
+}
+
+canvas {
+    margin-bottom: 25px;
+    border: 10px solid #6c4c75;
+}
