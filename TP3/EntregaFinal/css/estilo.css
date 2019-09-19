@@ -227,3 +227,36 @@ canvas {
     margin-bottom: 25px;
     border: 10px solid #6c4c75;
 }
+
+.contain-sprite {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: url(../images/back.png) repeat left center;
+    background-size: cover;
+    animation: playback .5s infinite;
+}
+
+.reaper {
+    position: relative;
+    top: 10rem;
+    width: 200px;
+    height: 200px;
+    margin: 2% auto;
+    background: url(../images/sprite.png) left center;
+    animation: play .8s steps(12) infinite;
+}
+
+@keyframes playback {
+    100% {
+        background-position: -1351px;
+    }
+}
+
+@keyframes play {
+    100% {
+        background-position: -2400px;
+    }
+}

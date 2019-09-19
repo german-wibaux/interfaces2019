@@ -30,11 +30,11 @@ window.onload = function() {
     // }
 
 
-    document.getElementById("seg").style.transform = "rotate(90deg)";
+    // document.getElementById("seg").style.transform = "rotate(90deg)";
     // let rect1 = new Rect(0, 0, 50, 50, "#ffffff", context);
     // setInterval(clock, 1000);
     const root = document.documentElement;
-    document.onmousemove = move
+    // document.onmousemove = move
     let rect3 = document.getElementsByClassName('rect');
 
     function move(e) {
@@ -57,7 +57,7 @@ window.onload = function() {
 
 
 
-    rect.onmousedown = myDownClick
+    // rect.onmousedown = myDownClick
 
     function myDownClick() {
         changeColor(rect)
