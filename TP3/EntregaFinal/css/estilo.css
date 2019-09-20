@@ -236,7 +236,7 @@ canvas {
     align-items: center;
     background: url(../images/back.png) repeat left center;
     background-size: cover;
-    animation: playback .5s infinite;
+    animation: playback linear 30s infinite;
 }
 
 .reaper {
@@ -245,13 +245,29 @@ canvas {
     width: 200px;
     height: 200px;
     margin: 2% auto;
-    background: url(../images/sprite.png) left center;
+    background: url(../images/spriteRuning.png) left center;
     animation: play .8s steps(12) infinite;
+}
+
+.reaper-jump {
+    position: relative;
+    top: 10rem;
+    width: 200px;
+    height: 200px;
+    margin: 2% auto;
+    background: transparent url(../images/spriteJump.png) left center;
+    animation: play1 .8s steps(11) infinite;
 }
 
 @keyframes playback {
     100% {
         background-position: -1351px;
+    }
+}
+
+@keyframes play1 {
+    100% {
+        background-position: -2200px;
     }
 }
 
