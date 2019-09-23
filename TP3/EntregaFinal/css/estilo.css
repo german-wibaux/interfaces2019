@@ -259,6 +259,13 @@ canvas {
     animation: play1 .8s steps(11) infinite;
 }
 
+#picture {
+    margin: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+
 @keyframes playback {
     100% {
         background-position: -1351px;

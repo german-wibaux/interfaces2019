@@ -1,9 +1,42 @@
 "use strict"
 
+
 window.onload = function() {
     let avgHour
     let avgMin
     let avgSeg
+
+    // let gameArea = {
+    //     canvas: document.createElement("canvas"),
+    //     start: function() {
+    //         this.canvas.width = window.innerWidth;
+    //         this.canvas.height = window.innerHeight;
+    //         this.context = this.canvas.getContext("2d");
+    //         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+    //         this.interval = setInterval(updateGameArea, 20);
+    //     },
+    //     clear: function() {
+    //         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    //     }
+    // }
+
+    // console.log(document.body.childNodes[0]);
+
+    let gameCanvas = document.getElementById("picture")
+    let ctx = document.getElementById("picture").getContext("2d")
+        // gameCanvas.width = document.getElementById("con-sprite").offsetWidth
+        // gameCanvas.height = document.getElementById("con-sprite").offsetHeight
+
+    // var gameCanvas = document.createElement('canvas')
+
+    // gameCanvas.id = "game"
+    // gameCanvas.width = width
+    // gameCanvas.height = heigth
+    // gameCanvas.style.zIndex = 8
+    // gameCanvas.style.position = "relative"
+
+    // var height = canvas.height = window.innerHeight
+    // var width1 = canvas.width = window.innerWidth
 
     // let canvas = document.getElementById("picture");
     // let context = document.getElementById("picture").getContext("2d");
@@ -67,14 +100,14 @@ window.onload = function() {
 
     }
 
-    function changeScale(ball) {
-        for (let i = 0; i < 2; i++) {
-            let width = Math.floor((Math.random() * 200) + 10);
-            let height = Math.floor((Math.random() * 200) + 10);
-            rect.style.width = width + "px"
-            rect.style.height = height + "px"
-        }
-    }
+    // function changeScale(ball) {
+    //     for (let i = 0; i < 2; i++) {
+    //         let width = Math.floor((Math.random() * 200) + 10);
+    //         let height = Math.floor((Math.random() * 200) + 10);
+    //         rect.style.width = width + "px"
+    //         rect.style.height = height + "px"
+    //     }
+    // }
 
     function changePosition(ball) {
         for (let i = 0; i < 2; i++) {
