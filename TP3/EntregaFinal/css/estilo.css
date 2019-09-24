@@ -229,14 +229,12 @@ canvas {
 }
 
 .contain-sprite {
-    display: flex;
     width: 100%;
     height: 100%;
-    justify-content: center;
-    align-items: center;
     background: url(../images/back.png) repeat left center;
     background-size: cover;
     animation: playback linear 30s infinite;
+    position: relative;
 }
 
 .reaper {
@@ -247,16 +245,30 @@ canvas {
     margin: 2% auto;
     background: url(../images/spriteRuning.png) left center;
     animation: play .8s steps(12) infinite;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-bottom: 0;
+    position: absolute;
 }
 
 .reaper-jump {
     position: relative;
     top: 10rem;
     width: 200px;
-    height: 200px;
+    height: 250px;
     margin: 2% auto;
     background: transparent url(../images/spriteJump.png) left center;
     animation: play1 .8s steps(11) infinite;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-bottom: 0;
+    position: absolute;
 }
 
 #picture {
