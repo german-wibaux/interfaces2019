@@ -237,6 +237,14 @@ canvas {
     position: relative;
 }
 
+.contain-sprite-quiet {
+    width: 100%;
+    height: 100%;
+    background: url(../images/back.png) repeat left center;
+    background-size: cover;
+    position: relative;
+}
+
 .reaper {
     position: relative;
     top: 10rem;
@@ -252,6 +260,27 @@ canvas {
     margin: auto;
     margin-bottom: 0;
     position: absolute;
+}
+
+.quiet-reaper {
+    position: relative;
+    top: 10rem;
+    width: 200px;
+    height: 200px;
+    margin: 2% auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-bottom: 0;
+    position: absolute;
+    background: transparent url(../images/quiet-reaper.png) left center;
+}
+
+#move {
+    position: absolute;
+    bottom: 0;
 }
 
 .reaper-jump {
