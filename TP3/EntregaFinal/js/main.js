@@ -10,7 +10,7 @@ move.onclick = run
 quietButton.onclick = stop
 jumpButton.onclick = jumpTrans
 
-function stop () {
+function stop() {
     let quietBt = document.getElementById('quiet')
     back.className = 'contain-sprite-quiet'
     quietBt.className = 'quiet-reaper'
@@ -26,6 +26,7 @@ function jump(e) {
 
 function jumpTrans() {
     let jump = document.getElementById('quiet')
+    jump.style.animation = ''
     jump.className = 'reaper-jump'
     setTimeout(run, 600);
 }
