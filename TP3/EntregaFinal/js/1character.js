@@ -1,8 +1,10 @@
 class Character {
     constructor(element) {
         this.element = element        
-        this.action = this.quiet()
-        
+        this.left
+        this.right
+        this.bottom
+        this.top        
     }
 
     setPosition(top, left, right, bottom) {
@@ -11,17 +13,9 @@ class Character {
         this.right = right
         this.bottom = bottom
     }
-
-    quiet() {
-        this.element.className = 'quiet-reaper'
-    }
-
-    run() {
-        this.element.className = 'reaper'
-    }
-
-    jump() {
-        this.element.className = 'reaper-jump'
+    
+    getPosition() {
+        return [this.top, this.left, this.right, this.bottom]
     }
 
 }
