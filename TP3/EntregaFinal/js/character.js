@@ -20,4 +20,8 @@ class Character {
         this.action = 'reaper'
     }
 
+    jump() {
+        this.action = 'reaper-jump'
+    }
+
 }
