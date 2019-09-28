@@ -4,7 +4,8 @@ window.onload = initGame()
 document.body.onkeyup = runGame
 
 
-function initGame () {    
+function initGame () {
+    //Init session    
     let containerGame = document.getElementById('container-sprite')
     let characterGame = document.getElementById('character')    
     gameSesion.setBackground(containerGame)
@@ -16,9 +17,22 @@ function initGame () {
 
 function runGame(e) {
     if(e.keyCode == 32){
-        console.log(e.keyCode)
-        gameSesion.runSession()
+        if ( gameSesion.getState() == 0) {
+            gameSesion.runSession()
+            let gameH1 = document.getElementById('begin-game')
+            gameH1.innerHTML = 'Space bar to jump'
+        } else {
+            let gameH1 = document.getElementById('begin-game')
+            gameH1.className = 'hidden'
+            gameSesion.characterJump()
+            setTimeout(runCharacter, 600)
+        }
+        
     }
+}
+
+function runCharacter() {
+    gameSesion.characterRunning()
 }
 
 // document.addEventListener('keypress', jump);
@@ -59,9 +73,3 @@ function runGame(e) {
 //     }
 // }
 
-// function run() {
-//     let run = document.getElementById('quiet')
-//     run.style.animation = ''
-//     back.className = 'contain-sprite'
-//     run.className = 'reaper'
-// }
