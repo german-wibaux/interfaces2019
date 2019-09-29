@@ -1,16 +1,16 @@
 
 class Game {
 
-    constructor(containerGame, characterGame, title) {
+    constructor(containerGame, characterGame, title, enemy) {
         this.background
         this.character
-        this.enemies = []
+        this.enemy = enemy
         this.state = 0
         this.setBackground(containerGame)
         this.setCharacter(characterGame)
         this.backgroundQuiet()
         this.character.quiet()
-        this.title = title 
+        this.title = title         
         //state 0 = quiet
         //state 1 = running        
     }
@@ -31,8 +31,8 @@ class Game {
         this.background = backg
     }
 
-    addEnemy (element) {
-        let enemy = new Character()
+    runEnemy () {
+       this.enemy.className = 'monster'
     }
 
     backgroundQuiet() {
@@ -54,11 +54,11 @@ class Game {
 
     }
 
-
     runSession() {
         this.background.className = 'contain-sprite'
         this.character.run()
         this.state = 1
+        this.runEnemy()
     }
 
     characterJump() {

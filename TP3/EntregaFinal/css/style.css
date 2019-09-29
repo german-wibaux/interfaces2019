@@ -298,6 +298,21 @@ canvas {
     position: absolute;
 }
 
+.monster {
+    width: 75px;
+    height: 75px;
+    margin: 2% auto;
+    background: url(../images/monster.png) left center;
+    animation: playMonster 7s infinite;
+    background-size: cover;
+    top: 0;
+    right: 0;
+    bottom: 45px;
+    margin: auto;
+    margin-bottom: 0;
+    position: absolute;
+}
+
 .beginGameH1 {
     display: flex;
     justify-content: center;
@@ -365,6 +380,13 @@ canvas {
     100% {
         background-position: -1920px;
     }
+}
+
+@keyframes playMonster {
+    from {left:  111rem;
+          right: 0;}
+    to {right:  111rem;
+        left: 0;}
 }
 
 @keyframes play1 {

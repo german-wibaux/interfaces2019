@@ -10,7 +10,8 @@ function initGame () {
     let containerGame = document.getElementById('container-sprite')
     let characterGame = document.getElementById('character') 
     let title = document.getElementById('begin-game')
-    let gameSesion = new Game(containerGame, characterGame, title)
+    let enemy = document.getElementById('monster')
+    let gameSesion = new Game(containerGame, characterGame, title, enemy)
 
     document.body.onkeyup = actionGame
     
