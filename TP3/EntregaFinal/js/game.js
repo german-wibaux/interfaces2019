@@ -7,10 +7,15 @@ class Game {
         this.setBackground(containerGame)
         this.backgroundQuiet()
         this.hero = new Hero('character')
+        this.enemy = new Enemy('monster')
     }
 
     draw() {
         //this.hero = this.setHero ('character')
+    }
+
+    track() {
+        
     }
 
     // setHero(id) {
@@ -30,6 +35,8 @@ class Game {
     runSession() {
         this.background.className = 'contain-sprite'
         this.hero.run()
+        //console.log(this.hero.getPosition().top);
+        
         this.state = 1
     }
 }
