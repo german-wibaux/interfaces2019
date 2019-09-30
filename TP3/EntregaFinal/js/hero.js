@@ -13,7 +13,6 @@ class Hero {
     // }
     
     getPosition() {
-
         return document.getElementById(this.id).getBoundingClientRect()
     }
 

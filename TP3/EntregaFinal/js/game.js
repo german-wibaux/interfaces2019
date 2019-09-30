@@ -14,15 +14,17 @@ class Game {
         //this.hero = this.setHero ('character')
     }
 
-    track() {
+    track() { 
         
     }
 
-    // setHero(id) {
-    //     let ret = new Hero(id)
-    //     console.log(ret)
-    //     return ret
-    // }
+    getTrackHero() {
+        return this.hero.getPosition()
+    }
+
+    getTrackEnemy() {
+        return this.enemy.getPosition()
+    }
 
     setBackground(backg) {
         this.background = backg
