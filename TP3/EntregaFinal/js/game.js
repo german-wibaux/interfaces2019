@@ -1,10 +1,12 @@
 
 class Game {
 
-    constructor(containerGame) {
+    constructor(containerGame, containerGame1) {
         this.background
+        this.background2
+        this.background3
         this.state = 0
-        this.setBackground(containerGame)
+        this.setBackground(containerGame, containerGame1)
         this.backgroundQuiet()
         this.hero = new Hero('character')
         this.enemy = new Enemy('monster')
@@ -21,9 +23,7 @@ class Game {
     gameOver(){
         this.state = 0
         this.backgroundQuiet()
-        this.enemy.quiet()
-        console.log("quiet");
-        
+        this.enemy.quiet()        
         this.hero.quiet()
         let gameH1 = document.getElementById('begin-game')
         gameH1.innerHTML = "Press spacebar to start"
@@ -57,8 +57,9 @@ class Game {
         return this.enemy.getPosition()
     }
 
-    setBackground(backg) {
+    setBackground(backg, backg1) {
         this.background = backg
+        this.background2 = backg1
     }
 
     getState() {
@@ -67,10 +68,12 @@ class Game {
 
     backgroundQuiet() {
         this.background.className = 'contain-sprite-quiet'
+        this.background2.className = 'contain-sprite-quiet-1'
     }
 
     runSession() {
         this.background.className = 'contain-sprite'
+        this.background2.className = 'contain-sprite-1'
         this.hero.run()        
         this.state = 1
     }
