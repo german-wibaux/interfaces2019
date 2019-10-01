@@ -12,5 +12,9 @@ class Enemy {
     atack() {
         document.getElementById(this.id).className = 'monster'
     }
+
+    quiet() {
+        document.getElementById(this.id).className = 'monster-quiet'
+    }
     
 }

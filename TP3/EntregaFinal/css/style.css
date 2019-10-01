@@ -324,7 +324,7 @@ canvas {
     margin: 2% auto;
     background: url(../images/monster.png) right center;
     background-size: cover;
-    left: 0;
+    left: 30rem;
     top: 0;
     right: 0;
     bottom: 68px;
@@ -337,17 +337,17 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20%;
+    width: 60%;
     height: 10%;
     background-color: black;
-    top: 0; 
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     position: absolute;
     margin: auto;
     text-align: center;
-    margin-top: 24rem;
+    /* margin-top: 24rem; */
     color: white;
 }
 
@@ -403,9 +403,9 @@ canvas {
 }
 
 @keyframes playMonster {
-    from {left:  111rem;
+    from {left:  100rem;
           right: 0;}
-    to {right:  111rem;
+    to {right:  60rem;
         left: 0;}
 }
 

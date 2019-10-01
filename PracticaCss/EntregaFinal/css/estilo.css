@@ -187,6 +187,18 @@
     height: 70%;
 }
 
+.row {
+    justify-content: center;
+}
+
+.row2 {
+    width: 50%;
+}
+
+h1 {
+    text-align: center;
+}
+
 nav {
     background-color: #6c4c75;
     padding: 35px;
@@ -194,7 +206,7 @@ nav {
 
 h1,
 h2 {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 #buttonGrayScale,

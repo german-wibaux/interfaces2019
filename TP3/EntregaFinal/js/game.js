@@ -10,10 +10,6 @@ class Game {
         this.enemy = new Enemy('monster')
     }
 
-    draw() {
-        //this.hero = this.setHero ('character')
-    }
-
     runCharacter() {
         this.hero.run()
     }
@@ -22,12 +18,30 @@ class Game {
         this.hero.jump()        
     }
 
+    gameOver(){
+        this.state = 0
+        this.backgroundQuiet()
+        this.enemy.quiet()
+        console.log("quiet");
+        
+        this.hero.quiet()
+        let gameH1 = document.getElementById('begin-game')
+        gameH1.innerHTML = "Press spacebar to start"
+        gameH1.className = 'beginGameH1'
+    }   
+
     actionHero(e) {
         if (e.keyCode == 32) {
+            let gameH1 = document.getElementById('begin-game')
             if (this.state == 0) {
                 this.runSession()
+                
+                gameH1.innerHTML = "Press spacebar to jump"
+                
                 this.enemy.atack()
+                checkState()
             } else {
+                gameH1.className = 'hidden'
                 this.hero.jump()        
                 setTimeout(runCharacter, 1100)
             }        

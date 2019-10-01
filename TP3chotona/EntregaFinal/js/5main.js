@@ -4,8 +4,7 @@ window.onload = initGame()
 
 
 
-function initGame () {
-    
+function initGame () {    
 
     let containerGame = document.getElementById('container-sprite')
     let characterGame = document.getElementById('character') 
