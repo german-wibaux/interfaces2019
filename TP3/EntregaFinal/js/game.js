@@ -22,8 +22,17 @@ class Game {
         this.hero.jump()        
     }
 
-    track() { 
-        
+    actionHero(e) {
+        if (e.keyCode == 32) {
+            if (this.state == 0) {
+                this.runSession()
+                this.enemy.atack()
+            } else {
+                this.hero.jump()        
+                setTimeout(runCharacter, 1100)
+            }        
+            
+        }
     }
 
     getTrackHero() {
@@ -38,7 +47,9 @@ class Game {
         this.background = backg
     }
 
-    
+    getState() {
+        return this.state
+    }
 
     backgroundQuiet() {
         this.background.className = 'contain-sprite-quiet'
@@ -46,9 +57,7 @@ class Game {
 
     runSession() {
         this.background.className = 'contain-sprite'
-        this.hero.run()
-        //console.log(this.hero.getPosition().top);
-        
+        this.hero.run()        
         this.state = 1
     }
 }

@@ -9,15 +9,15 @@ let game = new Game(idc)
 
 let enemy = document.getElementById('monster')
 
-setTimeout(trackEnemy,3000)
-setTimeout(trackEnemy,4500)
-setTimeout(trackEnemy,6000)
-setTimeout(trackEnemy,7500)
-setTimeout(trackEnemy,9000)
-setTimeout(trackEnemy,10500)
-setTimeout(trackEnemy,12000)
-setTimeout(trackEnemy,13500)
-setTimeout(trackEnemy,15000)
+// setTimeout(trackEnemy,3000)
+// setTimeout(trackEnemy,4500)
+// setTimeout(trackEnemy,6000)
+// setTimeout(trackEnemy,7500)
+// setTimeout(trackEnemy,9000)
+// setTimeout(trackEnemy,10500)
+// setTimeout(trackEnemy,12000)
+// setTimeout(trackEnemy,13500)
+// setTimeout(trackEnemy,15000)
 
 let hero = document.getElementById('character')
 
@@ -25,26 +25,26 @@ let hero = document.getElementById('character')
 
 
 
-setTimeout(trackHero,3000)
-setTimeout(trackHero,4500)
-setTimeout(trackHero,6000)
-setTimeout(trackHero,7500)
-setTimeout(trackHero,9000)
-setTimeout(trackHero,10500)
-setTimeout(trackHero,12000)
-setTimeout(trackHero,13500)
-setTimeout(trackHero,15000)
+// setTimeout(trackHero,3000)
+// setTimeout(trackHero,4500)
+// setTimeout(trackHero,6000)
+// setTimeout(trackHero,7500)
+// setTimeout(trackHero,9000)
+// setTimeout(trackHero,10500)
+// setTimeout(trackHero,12000)
+// setTimeout(trackHero,13500)
+// setTimeout(trackHero,15000)
 
-function trackHero() {
-    console.log(game.getTrackHero())
-    console.log(isMatch());
+// function trackHero() {
+//     console.log(game.getTrackHero())
+//     console.log(isMatch());
     
-} 
+// } 
 
-function trackEnemy() {
-    console.log(game.getTrackEnemy())
-    console.log(isMatch());
-} 
+// function trackEnemy() {
+//     console.log(game.getTrackEnemy())
+//     console.log(isMatch());
+// } 
 
 document.addEventListener('keypress', jumpCharacter);
 
@@ -87,24 +87,22 @@ function runCharacter() {
 }
 
 function jumpCharacter(e) {
-    if (e.keyCode == 32) {        
-        game.jumpCharacter()        
-        setTimeout(runCharacter, 1100)
-    }   
+    
+    game.actionHero(e)   
 }
 
 
 
 function initGame() {
     // Initialise the game!
-    game.runSession()
+    //game.runSession()
     
 
     
 
     
     
-    requestAnimationFrame(main);
+    //requestAnimationFrame(main);
 
     
 

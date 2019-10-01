@@ -318,6 +318,21 @@ canvas {
     position: absolute;
 }
 
+.monster-quiet {
+    width: 47px;
+    height: 55px;
+    margin: 2% auto;
+    background: url(../images/monster.png) right center;
+    background-size: cover;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 68px;
+    margin: auto;
+    margin-bottom: 0;
+    position: absolute;
+}
+
 .beginGameH1 {
     display: flex;
     justify-content: center;
