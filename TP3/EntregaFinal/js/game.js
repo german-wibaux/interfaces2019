@@ -14,8 +14,12 @@ class Game {
         //this.hero = this.setHero ('character')
     }
 
+    runCharacter() {
+        this.hero.run()
+    }
+
     jumpCharacter() {
-        this.hero.jump()
+        this.hero.jump()        
     }
 
     track() { 
@@ -34,10 +38,7 @@ class Game {
         this.background = backg
     }
 
-    runCharacter() {
-        
-        this.hero.run()
-    }
+    
 
     backgroundQuiet() {
         this.background.className = 'contain-sprite-quiet'

@@ -21,21 +21,9 @@ setTimeout(trackEnemy,15000)
 
 let hero = document.getElementById('character')
 
-document.addEventListener('keypress', jumpCharacter);
 
-function jumpCharacter(e) {
-        if (e.keyCode == 32) {
-            
-            
-            game.jumpCharacter()
-             
-            
-            // setTimeout(game.runCharacter(), 600)
-        }
-        
-    
-    
-}
+
+
 
 setTimeout(trackHero,3000)
 setTimeout(trackHero,4500)
@@ -58,16 +46,16 @@ function trackEnemy() {
     console.log(isMatch());
 } 
 
+document.addEventListener('keypress', jumpCharacter);
+
 window.onload = initGame
 
 
-function draw() {
-    game.draw()
-}
+
 
 function main() {
-    draw()
-    game.runSession()
+    
+    
 
     
 
@@ -94,10 +82,27 @@ function isMatch () {
 
 }
 
+function runCharacter() {
+    game.runCharacter()
+}
+
+function jumpCharacter(e) {
+    if (e.keyCode == 32) {        
+        game.jumpCharacter()        
+        setTimeout(runCharacter, 1100)
+    }   
+}
+
 
 
 function initGame() {
     // Initialise the game!
+    game.runSession()
+    
+
+    
+
+    
     
     requestAnimationFrame(main);
 

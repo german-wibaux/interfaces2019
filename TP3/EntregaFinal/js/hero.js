@@ -21,12 +21,12 @@ class Hero {
     }
 
     run() {
-        
+        console.log(this.id)
         document.getElementById(this.id).className = 'reaper'
     }
 
     jump() {
-        console.log("pasooo");
+        console.log(this.id);
         document.getElementById(this.id).className = 'reaper-jump'
     }
 
