@@ -313,9 +313,9 @@ canvas {
     left: 0;
     top: 0;
     right: 0;
-    bottom: 10px;
+    bottom: 0;
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 0;
     position: absolute;
 }
 
@@ -329,7 +329,7 @@ canvas {
     left: 0;
     top: 0;
     right: 0;
-    bottom: 68px;
+    bottom: 17px;
     margin: auto;
     margin-bottom: 0;
     position: absolute;
@@ -344,7 +344,7 @@ canvas {
     left: 30rem;
     top: 0;
     right: 0;
-    bottom: 68px;
+    bottom: 17px;
     margin: auto;
     margin-bottom: 0;
     position: absolute;
@@ -379,9 +379,9 @@ canvas {
     left: 0;
     top: 0;
     right: 0;
-    bottom: 10px;
+    bottom: 0;
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 0;
     position: absolute;
     background: transparent url(../images/quiet-reaper.png) left center;
 }
@@ -400,9 +400,9 @@ canvas {
     left: 0;
     top: 0;
     right: 0;
-    bottom: 10px;
+    bottom: 0;
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 0;
     position: absolute;
 }
 
