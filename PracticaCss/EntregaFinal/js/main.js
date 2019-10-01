@@ -8,29 +8,29 @@ window.onload = function() {
     // let canvas = document.getElementById("picture");
     // let context = document.getElementById("picture").getContext("2d");
 
-    // function clock() {
-    // 	let time = new Date();
-    // 	let hour = time.getHours();
-    // 	let min = time.getMinutes();
-    // 	let seg = time.getSeconds();
+    function clock() {
+    	let time = new Date();
+    	let hour = time.getHours();
+    	let min = time.getMinutes();
+    	let seg = time.getSeconds();
 
-    //     if (hour >= 12) {
-    //      	let avgHour = hour / 12 * 360;
-    //     }  else {
-    //     	let avgHour = hour / 24 * 360;
-    //     }
+        if (hour >= 12) {
+         	avgHour = hour / 12 * 360;
+        }  else {
+        	avgHour = hour / 24 * 360;
+        }
 
-    //     avgHour += min / 60 * 30;
-    //     avgMin = min / 60 * 360;
-    //     avgSeg = seg / 60 * 360;
+        avgHour += min / 60 * 30;
+        avgMin = min / 60 * 360;
+        avgSeg = seg / 60 * 360;
 
-    //     document.getElementById("hour").style.transform = "rotate("+ avgHour +"deg)";
-    //     document.getElementById("min").style.transform = "rotate("+ avgMin +"deg)";
-    //     document.getElementById("seg").style.transform = "rotate("+ avgSeg +"deg)";
-    // }
+        document.getElementById("hour").style.transform = "rotate("+ avgHour +"deg)";
+        document.getElementById("min").style.transform = "rotate("+ avgMin +"deg)";
+        document.getElementById("seg").style.transform = "rotate("+ avgSeg +"deg)";
+    }
 
-
-    document.getElementById("seg").style.transform = "rotate(90deg)";
+    clock()
+    //document.getElementById("seg").style.transform = "rotate(90deg)";
     // let rect1 = new Rect(0, 0, 50, 50, "#ffffff", context);
     // setInterval(clock, 1000);
     const root = document.documentElement;
@@ -46,11 +46,11 @@ window.onload = function() {
             // position = getPosition(e)
 
         // rect1.changePosition(position[0], position[1], context)
-        let x = e.clientX / innerWidth;
-        let y = e.clientY / innerHeight;
-        console.log("paso")
-        root.style.setProperty('--mouse-x', x)
-        root.style.setProperty('--mouse-y', y)
+        // let x = e.clientX / innerWidth;
+        // let y = e.clientY / innerHeight;
+        // console.log("paso")
+        // root.style.setProperty('--mouse-x', x)
+        // root.style.setProperty('--mouse-y', y)
 
     }
 

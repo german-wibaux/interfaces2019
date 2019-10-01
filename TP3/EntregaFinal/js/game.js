@@ -26,7 +26,7 @@ class Game {
         this.enemy.quiet()        
         this.hero.quiet()
         let gameH1 = document.getElementById('begin-game')
-        gameH1.innerHTML = "Press spacebar to start"
+        gameH1.innerHTML = "Presionar barra para comenzar"
         gameH1.className = 'beginGameH1'
     }   
 
@@ -36,7 +36,7 @@ class Game {
             if (this.state == 0) {
                 this.runSession()
                 
-                gameH1.innerHTML = "Press spacebar to jump"
+                gameH1.innerHTML = "Presionar barra para saltar"
                 
                 this.enemy.atack()
                 checkState()
