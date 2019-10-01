@@ -14,6 +14,10 @@ class Game {
         //this.hero = this.setHero ('character')
     }
 
+    jumpCharacter() {
+        this.hero.jump()
+    }
+
     track() { 
         
     }
@@ -28,6 +32,11 @@ class Game {
 
     setBackground(backg) {
         this.background = backg
+    }
+
+    runCharacter() {
+        
+        this.hero.run()
     }
 
     backgroundQuiet() {

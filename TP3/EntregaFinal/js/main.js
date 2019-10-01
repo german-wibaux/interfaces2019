@@ -21,6 +21,22 @@ setTimeout(trackEnemy,15000)
 
 let hero = document.getElementById('character')
 
+document.addEventListener('keypress', jumpCharacter);
+
+function jumpCharacter(e) {
+        if (e.keyCode == 32) {
+            
+            
+            game.jumpCharacter()
+             
+            
+            // setTimeout(game.runCharacter(), 600)
+        }
+        
+    
+    
+}
+
 setTimeout(trackHero,3000)
 setTimeout(trackHero,4500)
 setTimeout(trackHero,6000)
@@ -33,10 +49,13 @@ setTimeout(trackHero,15000)
 
 function trackHero() {
     console.log(game.getTrackHero())
+    console.log(isMatch());
+    
 } 
 
 function trackEnemy() {
     console.log(game.getTrackEnemy())
+    console.log(isMatch());
 } 
 
 window.onload = initGame
@@ -49,10 +68,33 @@ function draw() {
 function main() {
     draw()
     game.runSession()
-    let idc = document.getElementById('monster').onchange = game.track
+
+    
+
     // call itself by requesting the next animation frame, and so begin the endless loop
     //requestAnimationFrame(main);
+    if (isMatch()) {
+        alert('Perdio')
+        game = new Game(idc)
+        initGame()
+    } else {
+        requestAnimationFrame(main);
+    }
+    
 }
+
+function isMatch () {
+    let hero = game.getTrackHero()
+    let enemy = game.getTrackEnemy()
+    if (hero.left < enemy.left + enemy.width  && hero.left + hero.width  > enemy.left &&
+        hero.top < enemy.top + enemy.height && hero.top + hero.height > enemy.top)
+        return true
+    else
+        return false
+
+}
+
+
 
 function initGame() {
     // Initialise the game!

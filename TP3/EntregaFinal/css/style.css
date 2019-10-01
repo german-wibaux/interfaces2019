@@ -288,7 +288,7 @@ canvas {
 }
 
 .reaper {
-    width: 200px;
+    width: 140px;
     height: 200px;
     margin: 2% auto;
     background: url(../images/spriteRuning.png) left center;
@@ -303,12 +303,13 @@ canvas {
 }
 
 .monster {
-    width: 75px;
+    width: 58px;
     height: 75px;
     margin: 2% auto;
-    background: url(../images/monster.png) left center;
-    animation: playMonster 7s infinite;
+    background: url(../images/monster.png) right center;
+    animation: playMonster 9s infinite;
     background-size: cover;
+    left: 0;
     top: 0;
     right: 0;
     bottom: 45px;
