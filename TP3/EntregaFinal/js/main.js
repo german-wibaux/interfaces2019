@@ -10,7 +10,7 @@ let hero = document.getElementById('character')
 
 document.addEventListener('keypress', jumpCharacter);
 
-window.onload = checkState
+// window.onload = checkState
 
 function checkState() {
     // call itself by requesting the next animation frame, and so begin the endless loop
