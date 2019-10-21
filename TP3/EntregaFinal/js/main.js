@@ -2,7 +2,7 @@
 
 let idc = document.getElementById('container')
 let idc1 = document.getElementById('container-1')
-let game = new Game(idc, idc1)
+let game = new Game(idc)
 
 let enemy = document.getElementById('monster')
 

@@ -6,10 +6,10 @@ class Game {
         this.background2
         this.background3
         this.state = 0
-        this.setBackground(containerGame, containerGame1)
+        this.setBackground(containerGame)
         this.backgroundQuiet()
-        this.hero = new Hero('character')
-        this.enemy = new Enemy('monster')
+        // this.hero = new Hero('character')
+        // this.enemy = new Enemy('monster')
     }
 
     runCharacter() {
@@ -57,9 +57,9 @@ class Game {
         return this.enemy.getPosition()
     }
 
-    setBackground(backg, backg1) {
+    setBackground(backg) {
         this.background = backg
-        this.background2 = backg1
+        // this.background2 = backg1
     }
 
     getState() {
@@ -68,7 +68,7 @@ class Game {
 
     backgroundQuiet() {
         this.background.className = 'contain-sprite-quiet'
-        this.background2.className = 'contain-sprite-quiet-1'
+        // this.background2.className = 'contain-sprite-quiet-1'
     }
 
     runSession() {
