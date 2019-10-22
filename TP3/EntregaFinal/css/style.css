@@ -308,6 +308,7 @@ canvas {
     z-index: 3;
     width: 1300px;
     height: 670px;
+    display: flex;
 }
 
 .contain-sprite-quiet {
@@ -333,22 +334,22 @@ canvas {
     z-index: 3;
     width: 1300px;
     height: 670px;
+    display: flex;
 }
 
 .reaper {
     width: 148px;
     height: 148px;
-    margin: 2% auto;
     background: url(../images/spriteRuning.png) left center;
     animation: play 0.6s steps(12) infinite;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 53px;
     margin: auto;
-    margin-bottom: 0;
+    margin-bottom: 52px;
     position: absolute;
     z-index: 4;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .monster {
@@ -358,28 +359,20 @@ canvas {
     background: url(../images/monster.png) right center;
     animation: playMonster 6s infinite;
     background-size: cover;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 17px;
     margin: auto;
-    margin-bottom: 0;
-    position: absolute;
+    margin-bottom: 60px;
+    position: relative;
 }
 
 .monster-quiet {
     width: 47px;
     height: 55px;
-    margin: 2% auto;
     background: url(../images/monster.png) right center;
     background-size: cover;
-    left: 30rem;
-    top: 0;
-    right: 0;
-    bottom: 17px;
     margin: auto;
-    margin-bottom: 0;
-    position: absolute;
+    margin-bottom: 60px;
+    position: relative;
+    display: none;
 }
 
 .beginGameH1 {
@@ -407,14 +400,9 @@ canvas {
 .quiet-reaper {
     width: 148px;
     height: 148px;
-    margin: 2% auto;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
     margin: auto;
-    margin-bottom: 0;
-    position: absolute;
+    margin-bottom: 52px;
+    position: relative;
     background: transparent url(../images/quiet-reaper.png) left center;
 }
 
