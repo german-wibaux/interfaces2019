@@ -1,8 +1,9 @@
 "use strict"
 
-let idc = document.getElementById('container')
-let idc1 = document.getElementById('container-1')
-let game = new Game(idc)
+let idc = document.getElementById('contain-game')
+let idc1 = document.getElementById('contain-game-1')
+let idc2 = document.getElementById('contain-game-2')
+let game = new Game(idc, idc1, idc2)
 
 let enemy = document.getElementById('monster')
 
