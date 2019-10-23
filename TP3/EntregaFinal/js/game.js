@@ -10,6 +10,7 @@ class Game {
         this.backgroundQuiet()
         this.hero = new Hero('character')
         this.enemy = new Enemy('monster')
+        this.enemy1 = new Enemy('monster1')
         this.t
         this.n
         this.points = 0
@@ -28,19 +29,35 @@ class Game {
         // let aux = document.getElementById("number").html
         this.state = 0
         this.enemy.disappear()
-        var x = document.getElementById("number").innerText;
-        var x1 = parseInt(x)
-        x1 = x1 + 10
-        alert(x1)
-        this.hero.stop()
+        let x = document.getElementById("points").innerText;
+        let res = document.getElementById("max-points").innerText;
+        let x1 = parseInt(x)
+        let res1 = parseInt(res)
+        if (res1 < x1) {
+            this.hero.stop()
+            this.backgroundQuiet()
+            var l = document.getElementById("max-points");
+            l.innerHTML = x1;
+            let gameH1 = document.getElementById('begin-game')
+            gameH1.innerHTML = "Perdiste! Presiona la barra para comenzar"
+            gameH1.className = 'beginGameH1'
+        } else {
+            this.hero.stop()
+            this.backgroundQuiet()
+            let gameH1 = document.getElementById('begin-game')
+            gameH1.innerHTML = "Perdiste! Presiona la barra para comenzar"
+            gameH1.className = 'beginGameH1'
+        }
+        
+        
         // alert(this.hero)
         //this.hero.die()
-        //this.backgroundQuiet()
+        
         //this.enemy.quiet()        
         //this.hero.quiet()
-        let gameH1 = document.getElementById('begin-game')
-        gameH1.innerHTML = "Presionar barra para comenzar"
-        gameH1.className = 'beginGameH1'
+        
+        
+        
     }   
 
     actionHero(e) {
@@ -97,7 +114,7 @@ class Game {
         this.hero.run()        
         this.state = 1
         var n = 0;
-        var l = document.getElementById("number");
+        var l = document.getElementById("points");
         this.n = window.setInterval(function(){
         l.innerHTML = n;
         n++;

@@ -332,12 +332,34 @@ canvas {
     z-index: 6;
     width: 1300px;
     height: 670px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #contain-points > #number {
-    text-align: right;
     color: white;
-    font-size: 70px;
+    font-size: 28px;
+    width: 14rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-top: 1.6rem;
+}
+
+#number-max {
+    width: 18rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    color: white;
+    font-size: 26px;
+    padding-top: 0.5rem;
+    border: 2px solid;
+    margin-top: 1rem;
 }
 
 .contain-sprite-quiet-2 {
@@ -395,19 +417,20 @@ canvas {
 }
 
 .monster {
-    width: 47px;
-    height: 55px;
+    width: 90px;
+    height: 120px;
     margin: 2% auto;
     background: url(../images/monster.png) right center;
     animation: playMonster 6s infinite;
     background-size: cover;
     margin: auto;
-    margin-bottom: 60px;
+    margin-bottom: 55px;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
 }
+
 
 .monster-disappear {
     width: 47px;
@@ -435,12 +458,23 @@ canvas {
     display: none;
 }
 
+.monster-quiet1 {
+    width: 47px;
+    height: 55px;
+    background: url(../images/monster.png) right center;
+    background-size: cover;
+    margin: auto;
+    margin-bottom: 100px;
+    position: relative;
+    display: none;
+}
+
 .beginGameH1 {
     display: flex;
     z-index: 6;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 38%;
     height: 10%;
     background-color: black;
     top: 0;
@@ -499,7 +533,7 @@ canvas {
 
 
 @keyframes playMonster {
-    0% {left:  100rem;
+    0% {left:  75rem;
           right: 0;
         opacity: 1;}
     80% {opacity: 0.7;}
@@ -519,19 +553,19 @@ canvas {
         bottom: 10px;
     }
     25% {
-        bottom: 150px;
+        bottom: 125px;
     }
     50% {
-        bottom: 200px;
+        bottom: 175px;
     }
     60% {
-        bottom: 200px;
+        bottom: 175px;
     }
     65% {
-        bottom: 200px; 
+        bottom: 175px; 
     }
     70% {
-        bottom: 200px;
+        bottom: 175px;
     }
     75% {
         bottom: 150px;
