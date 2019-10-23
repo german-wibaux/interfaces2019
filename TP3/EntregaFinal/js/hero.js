@@ -14,6 +14,7 @@ class Hero {
 
     jump() {
         document.getElementById(this.id).className = 'reaper-jump'
+        
     }
 
     quiet() {         
@@ -21,6 +22,13 @@ class Hero {
     }
     
     die() {
+        document.getElementById(this.id).style.WebkitAnimationPlayState = "running"
+        document.getElementById(this.id).className = 'reaper-dying'
+    }
+
+    stop() {
+        document.getElementById(this.id).style.WebkitAnimationPlayState = "paused"
+        document.getElementById(this.id).style.WebkitAnimationPlayState = "running"
         document.getElementById(this.id).className = 'reaper-dying'
     }
 

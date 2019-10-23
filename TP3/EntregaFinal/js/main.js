@@ -19,6 +19,7 @@ function checkState() {
     if (game.getState() == 1)
     {
         if (isMatch()) {
+            game.stop()
             game.gameOver()
         } else {
             requestAnimationFrame(checkState);
@@ -43,8 +44,8 @@ function runCharacter() {
 }
 
 function jumpCharacter(e) {
-    e.preventDefault();
-    e.stopPropagation();    
+    // e.preventDefault();
+    // e.stopPropagation();    
     game.actionHero(e)   
 }
 

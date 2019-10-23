@@ -10,6 +10,9 @@ class Game {
         this.backgroundQuiet()
         this.hero = new Hero('character')
         this.enemy = new Enemy('monster')
+        this.t
+        this.n
+        this.points = 0
     }
 
     runCharacter() {
@@ -21,10 +24,18 @@ class Game {
     }
 
     gameOver(){
+        window.clearInterval(this.n)
+        // let aux = document.getElementById("number").html
         this.state = 0
         this.enemy.disappear()
-        this.hero.die()
-        this.backgroundQuiet()
+        var x = document.getElementById("number").innerText;
+        var x1 = parseInt(x)
+        x1 = x1 + 10
+        alert(x1)
+        this.hero.stop()
+        // alert(this.hero)
+        //this.hero.die()
+        //this.backgroundQuiet()
         //this.enemy.quiet()        
         //this.hero.quiet()
         let gameH1 = document.getElementById('begin-game')
@@ -45,10 +56,14 @@ class Game {
             } else {
                 gameH1.className = 'hidden'
                 this.hero.jump()        
-                setTimeout(runCharacter, 1100)
+                this.t = setTimeout(runCharacter, 1100)
             }        
             
         }
+    }
+
+    stop() {
+        clearTimeout(this.t); 
     }
 
     getTrackHero() {
@@ -81,5 +96,11 @@ class Game {
         this.background3.className = 'contain-sprite-2'
         this.hero.run()        
         this.state = 1
+        var n = 0;
+        var l = document.getElementById("number");
+        this.n = window.setInterval(function(){
+        l.innerHTML = n;
+        n++;
+        },50);
     }
 }

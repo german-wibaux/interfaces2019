@@ -327,6 +327,19 @@ canvas {
     height: 670px;
 }
 
+#contain-points {
+    position: absolute;
+    z-index: 6;
+    width: 1300px;
+    height: 670px;
+}
+
+#contain-points > #number {
+    text-align: right;
+    color: white;
+    font-size: 70px;
+}
+
 .contain-sprite-quiet-2 {
     background: transparent url(../images/3_backg.png) repeat left center;
     background-size: cover;
@@ -424,6 +437,7 @@ canvas {
 
 .beginGameH1 {
     display: flex;
+    z-index: 6;
     justify-content: center;
     align-items: center;
     width: 60%;
