@@ -22,9 +22,11 @@ class Game {
 
     gameOver(){
         this.state = 0
+        this.enemy.disappear()
+        this.hero.die()
         this.backgroundQuiet()
-        this.enemy.quiet()        
-        this.hero.quiet()
+        //this.enemy.quiet()        
+        //this.hero.quiet()
         let gameH1 = document.getElementById('begin-game')
         gameH1.innerHTML = "Presionar barra para comenzar"
         gameH1.className = 'beginGameH1'
@@ -39,7 +41,7 @@ class Game {
                 gameH1.innerHTML = "Presionar barra para saltar"
                 
                 this.enemy.atack()
-                // checkState()
+                checkState()
             } else {
                 gameH1.className = 'hidden'
                 this.hero.jump()        

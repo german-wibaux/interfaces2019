@@ -17,4 +17,8 @@ class Enemy {
         document.getElementById(this.id).className = 'monster-quiet'
     }
     
+    disappear() {
+        document.getElementById(this.id).className = 'monster-disappear'
+    }
+
 }

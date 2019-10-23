@@ -20,4 +20,8 @@ class Hero {
         document.getElementById(this.id).className = 'quiet-reaper'
     }
     
+    die() {
+        document.getElementById(this.id).className = 'reaper-dying'
+    }
+
 }
