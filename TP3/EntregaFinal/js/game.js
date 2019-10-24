@@ -28,7 +28,7 @@ class Game {
         window.clearInterval(this.n)
         // let aux = document.getElementById("number").html
         this.state = 0
-        this.enemy.disappear()
+        
         let x = document.getElementById("points").innerText;
         let res = document.getElementById("max-points").innerText;
         let x1 = parseInt(x)
@@ -41,6 +41,7 @@ class Game {
             let gameH1 = document.getElementById('begin-game')
             gameH1.innerHTML = "Perdiste! Presiona la barra para comenzar"
             gameH1.className = 'beginGameH1'
+            //this.enemy.disappear()
         } else {
             this.hero.stop()
             this.backgroundQuiet()
@@ -67,7 +68,8 @@ class Game {
                 this.runSession()
                 
                 gameH1.innerHTML = "Presionar barra para saltar"
-                
+                //this.enemy.runOnly()
+                this.enemy = new Enemy('monster')
                 this.enemy.atack()
                 checkState()
             } else {

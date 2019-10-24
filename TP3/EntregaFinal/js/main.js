@@ -23,7 +23,7 @@ function checkState() {
             game.stop()
             game.stopOnlyh()
             game.stopOnlye()
-            //game.gameOver()
+            game.gameOver()
         } else {
             requestAnimationFrame(checkState);
         }

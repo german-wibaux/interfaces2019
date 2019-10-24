@@ -2,6 +2,7 @@ class Enemy {
     constructor(id) {
         this.id = id
         document.getElementById(this.id).className = 'monster-quiet'
+        
         //this.draw()
     }
     
@@ -10,7 +11,12 @@ class Enemy {
     }
 
     atack() {
+        // document.getElementById(this.id).style.WebkitAnimationPlayState = "paused"
+        
+        
         document.getElementById(this.id).className = 'monster'
+        
+        
     }
 
     quiet() {
@@ -23,7 +29,11 @@ class Enemy {
 
     stopOnly() {
         document.getElementById(this.id).style.WebkitAnimationPlayState = "paused"
+        setTimeout(document.getElementById(this.id).style.WebkitAnimationPlayState = "running", 2200)
+        //document.getElementById(this.id).style.WebkitAnimationPlayState = "running"
     }
+
+    
 
 
 }
