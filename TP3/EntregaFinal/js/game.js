@@ -83,6 +83,14 @@ class Game {
         clearTimeout(this.t); 
     }
 
+    stopOnlyh() {
+        this.hero.stopOnly()
+    }
+
+    stopOnlye() {
+        this.enemy.stopOnly()
+    }
+
     getTrackHero() {
         return this.hero.getPosition()
     }

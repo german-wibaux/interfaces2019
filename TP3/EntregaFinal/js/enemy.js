@@ -21,4 +21,9 @@ class Enemy {
         document.getElementById(this.id).className = 'monster-disappear'
     }
 
+    stopOnly() {
+        document.getElementById(this.id).style.WebkitAnimationPlayState = "paused"
+    }
+
+
 }

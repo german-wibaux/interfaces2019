@@ -26,6 +26,10 @@ class Hero {
         document.getElementById(this.id).className = 'reaper-dying'
     }
 
+    stopOnly() {
+        document.getElementById(this.id).style.WebkitAnimationPlayState = "paused"
+    }
+
     stop() {
         document.getElementById(this.id).style.WebkitAnimationPlayState = "paused"
         document.getElementById(this.id).style.WebkitAnimationPlayState = "running"
