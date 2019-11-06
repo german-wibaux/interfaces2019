@@ -3,7 +3,7 @@ html, body, .estreno {
         height: 100%;
     }
     header {
-        height: 100px;
+        height: 100pxv;
         width: 100%;
     }
     .color_text_global {
@@ -72,36 +72,48 @@ html, body, .estreno {
         visibility: hidden;
         display: none;
     }
-    .subtitle {
-        width: 100%;
-        visibility: visible;   
-        padding: 0px 310px; 
-    }
-    .subtitle_mobile {
-        visibility: hidden;
-        display: none;
-    }
-    .separator_nav {
-        width: 100%;
+    hr {
         margin-top: 0px;
         border: 0; border-top: 2px solid rgba(105,255,51);
+        width: 100%;
         margin-bottom: 0px;
-    }
-    .separator {
-        margin-top: 0px;
-        border: 0; border-top: 2px solid rgba(105,255,51);
-        width: 67%;
-        margin-bottom: 40px;
 
     }
-    .separator_mobile {
-        margin-bottom: 20px;
+    form {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        width: 310px;
     }
+    .form-control {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        width: 450px;
+        width: 100%;
+    }
+    
     .container_steps {
         width: 420px;
         margin-bottom: 50px;
     }
-
+     .multi-steps > li:after {
+        height: 7px;
+    }
+    li#Paso2 {
+        color: rgb(37, 0, 56) !important;
+    }
+    #Paso2::before {
+        color: rgb(37, 0, 56);
+        border-color: rgb(105,255,51);
+        background-color: rgba(105,255,51) !important;
+    }
+    #Paso1::after {
+        background-color: rgba(105,255,51) !important;
+    }
+    .multi-steps > li.is-active:before {
+        background-color: rgba(105,255,51) !important;
+    }
     .multi-steps > li.is-active:before, .multi-steps > li.is-active ~ li:before {
         content: counter(stepNum);
         font-family: inherit;
@@ -159,6 +171,9 @@ html, body, .estreno {
     .multi-steps > li.is-active:before {
         background-color: rgb(105, 255, 51);
         border-color: rgb(105, 255, 51);
+        color: rgb(37, 0, 56);
+        z-index: 1;
+
    }
     .multi-steps > li.is-active ~ li {
         color: rgb(112, 112, 112);
@@ -176,7 +191,17 @@ html, body, .estreno {
     h1.card-title {
         font-weight: 600;
     }
-    
+    .subtitle {
+        color: rgb(37, 0, 56);
+        visibility: visible; 
+        display: inline-block;       
+        margin-bottom: 10px;
+        text-align: center;    
+    }
+    .subtitle_mobile {          
+        display: none;
+        visibility: hidden;   
+    }
     .buttonForm {
         width: 300px;   
         height: 50px; 
@@ -188,7 +213,7 @@ html, body, .estreno {
         text-align: center;
     }
     /* Button */
-   
+
     .contain_btn {
         display: flex;
     }
@@ -276,13 +301,14 @@ html, body, .estreno {
         width: 20px;
     }
     .containerItemForm {
-        justify-content: space-around;
+    justify-content: space-around;
     }
     .input {
+        width: 100%;
         margin-bottom: 10px;
         margin-top: 40px;
         border-radius: 0px;
-        background: rgb(217, 217, 217);
+        background:white;
         border: none;
         background-clip: border-box;
         height: 50px;
@@ -290,7 +316,6 @@ html, body, .estreno {
     }
     
     .input:focus {
-        background-color: rgb(217, 217, 217);
         color: rgb(37, 0, 56);
         box-shadow: 0 0 0 2px rgba(105,255,51,.8);
     }
@@ -321,6 +346,10 @@ html, body, .estreno {
     .estreno-nighx h1 {
         font-size: 50px;
     }
+    p.messagePass {
+        color: rgb(37,0,56);
+        text-align: center;
+    }
     .estreno-nighx p {
         font-size: 30px;
         line-height: 55px;
@@ -336,7 +365,7 @@ html, body, .estreno {
     h2 {
         color: rgb(37, 0, 56);
     }
-
+  
     /*CARDS*/
     .card-header{
         padding: 20px 40px;
@@ -349,12 +378,11 @@ html, body, .estreno {
     .mb-3, .my-3 {
         width: 1300px;
     }
+    
    .container_subtitle {
      width: 1300px;
      padding: 0px 20px 20px 20px;
-     margin-bottom: 20px;  
-     display: contents;
-     justify-content: center; 
+     margin-bottom: 20px;   
    }
     .card {
         margin-left: 20px;
@@ -401,6 +429,21 @@ html, body, .estreno {
         position: absolute;
         left: 20px;
         padding-right: 30px;
+    }
+    .volver a {
+        font-weight: 600;
+        color: rgb(37, 0, 56) !important;
+        letter-spacing: -.5px;
+    }
+    .volver { 
+        flex-direction: column;    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+    .fa-arrow-circle-left::before {
+        font-size: 60px;
     }
     /* FOOTER */
     .footerContainer {
@@ -453,19 +496,32 @@ html, body, .estreno {
     }
     /* FOOTER Mobile */
     @media (max-width: 375px) {
+        .h1, h1 {
+            font-size: 2rem;
+            margin:0;
+        }
         header {
             width: 375px;
             height: 100px;
         }
-       .background_nav {
-           max-width: 375px;
-       }
-        .nav-bg {
-            width: 375px;
+        .newAcount {
+            margin-top: 40px;
+        }
+        a.PregFrec.newAcount  {
+            margin-top: 20px;
+        }
+        .background_nav {
             height: 100px;
+            width: 375px;
+            background-color: black;
         }
         .separator {
-            width: 88%;
+            width: 100%;
+        }
+        .nav-bg {
+            padding: 0;
+            height: 100px;
+            width: 375px;
         }
         .title_dark {
             display: none;
@@ -491,36 +547,39 @@ html, body, .estreno {
             font-size: 25px;
             margin-bottom: 10px;
             text-align: center;
+            width: 100%;
+        }
+
+        .container_form {
+            align-self: flex-start;
+            width: 100%;        
+            height: 750px;
+            padding: 30px;
         }
         .container_steps {
             width: 350px;
         }
-        .container_subtitle {
-            width: 375px;
-        }
-        .btn-primary > a {         
-            color:  rgba(37, 0, 56) !important;          
-        }
-        .btn-primary {         
-            background: linear-gradient(#d4fcc6 0%, #79ff4a 44%, #6fff3c 100%);
-        }
-        .container_form {
-            width: 100%;
-        }
         .container {
+            height: 880px;
+            padding: 0;
             max-width: 375px;
         }
-        .container-steps {
-            max-width: 375px;
+        .input {
+            margin-top: 30px;
         }
-        .card {
-            max-width: 375px;
+        .form-control {       
+            width: 310px;
         }
-        .mb-3 {
-            max-width: 350px;
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            margin-top:30px;
+        }
+        .buttonForm {
+            width: 310px;
         }
         footer {
             width:375px;
         }
-
     }
