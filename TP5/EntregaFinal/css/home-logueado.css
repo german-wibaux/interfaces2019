@@ -666,6 +666,7 @@ html, body {
     .modal-xl-viernes {
         max-width: 1200px;
     }
+<<<<<<< HEAD
 }
 #close-viernes {
     top: 90px;
@@ -678,6 +679,20 @@ html, body {
     top: 10px;
     padding-left: 0px !important;
 }
+=======
+}
+#close-viernes {
+    top: 90px;
+    right: 30px;
+}
+#viernes-modal {
+    top: 10px;
+}
+#viernes-modal-2 {
+    top: 10px;
+    padding-left: 0px !important;
+}
+>>>>>>> 1d482b63cbe0f9e2656c86569264fe9485df1a08
 #viernes-modal a {
     position: relative;
     left: 465px;

@@ -98,7 +98,11 @@ html, body, .estreno {
         margin-bottom: 20px;
     }
     .container_steps {
+<<<<<<< HEAD
         width: 420px;
+=======
+        width: 620px;
+>>>>>>> 1d482b63cbe0f9e2656c86569264fe9485df1a08
         margin-bottom: 50px;
     }
 
@@ -189,6 +193,7 @@ html, body, .estreno {
     }
     /* Button */
    
+<<<<<<< HEAD
     .contain_btn {
         display: flex;
     }
@@ -232,15 +237,45 @@ html, body, .estreno {
         justify-content: center;
         align-items: center;
         background: linear-gradient(#d4fcc6 0%, #79ff4a 44%, #6fff3c 100%);
+=======
+  .btn-primary > a {
+    width: 250px;
+    height: 60px;
+    color:  rgb(37, 0, 56, .5) !important;
+    text-decoration: none;
+  }
+  .btn-primary > a:hover {  
+    color:  rgb(37, 0, 56) !important;
+    text-decoration: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+  }
+    .btn-primary {
+        background: linear-gradient(rgba(212, 252, 198,.5) 0%, rgba(121, 255, 74,.5) 44%, rgba(111, 255, 60,.5) 100%);
+>>>>>>> 1d482b63cbe0f9e2656c86569264fe9485df1a08
         width: 250px;
         height: 60px;
         border: 0 solid transparent !important;
         font-weight: bold !important;
         font-size: 22px !important;        
         letter-spacing: 0.49px;
+<<<<<<< HEAD
         margin-bottom: 50px;
         margin-top: 40px;
         color:  rgb(37, 0, 56);
+=======
+        margin-bottom: 7rem;
+        display: flex;
+        padding: 0;
+    }
+
+    .btn-primary:focus {
+        box-shadow: 0 0 0 0 rgba(255,255,255,.0) !important;
+        outline: none;
+>>>>>>> 1d482b63cbe0f9e2656c86569264fe9485df1a08
     }
     
     .btn-primary > a {
@@ -254,6 +289,10 @@ html, body, .estreno {
       }
         
     .btn-primary:hover {
+<<<<<<< HEAD
+=======
+        background: linear-gradient(rgba(212, 252, 198,1) 0%, rgba(121, 255, 74,1) 44%, rgba(111, 255, 60,1) 100%);
+>>>>>>> 1d482b63cbe0f9e2656c86569264fe9485df1a08
         background-color: rgb(37, 0, 56) !important;
         border: 2px solid  rgb(37, 0, 56) !important;
         color:  rgb(37, 0, 56) !important;
@@ -498,12 +537,15 @@ html, body, .estreno {
         .container_subtitle {
             width: 375px;
         }
+<<<<<<< HEAD
         .btn-primary > a {         
             color:  rgba(37, 0, 56) !important;          
         }
         .btn-primary {         
             background: linear-gradient(#d4fcc6 0%, #79ff4a 44%, #6fff3c 100%);
         }
+=======
+>>>>>>> 1d482b63cbe0f9e2656c86569264fe9485df1a08
         .container_form {
             width: 100%;
         }
