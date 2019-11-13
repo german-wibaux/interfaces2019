@@ -23,7 +23,7 @@ class Hero {
     
     die() {
         document.getElementById(this.id).style.WebkitAnimationPlayState = "running"
-        document.getElementById(this.id).className = 'reaper-dying'
+        document.getElementById(this.id).className = 'reaper reaper-dying'
     }
 
     stopOnly() {
@@ -33,7 +33,10 @@ class Hero {
     stop() {
         document.getElementById(this.id).style.WebkitAnimationPlayState = "paused"
         document.getElementById(this.id).style.WebkitAnimationPlayState = "running"
-        document.getElementById(this.id).className = 'reaper-dying'
+        document.getElementById(this.id).className = 'reaper reaper-dying'
+        setTimeout(() => {
+            document.getElementById(this.id).className = '';
+          }, 650);
     }
 
 }

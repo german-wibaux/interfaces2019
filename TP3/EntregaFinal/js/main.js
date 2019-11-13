@@ -18,8 +18,7 @@ function checkState() {
     //requestAnimationFrame(main);
     if (game.getState() == 1)
     {
-        if (isMatch()) {
-            
+        if (isMatch()) {            
             game.stop()
             game.stopOnlyh()
             game.stopOnlye()
@@ -34,10 +33,11 @@ function checkState() {
 function isMatch () {
     let hero = game.getTrackHero()
     let enemy = game.getTrackEnemy()
-    console.log(hero)
-    console.log(enemy)
-     if (hero.left < enemy.left + enemy.width  && hero.left + hero.width  > enemy.left &&
-         hero.top < enemy.top + enemy.height && hero.top + hero.height > enemy.top)
+    // console.log(hero)
+    // console.log(enemy)
+    const offset = 50;
+     if (hero.left < enemy.left + enemy.width-offset  && hero.left + hero.width - offset  > enemy.left &&
+         hero.top < enemy.top + enemy.height - offset && hero.top + hero.height -offset > enemy.top)
     
         return true
     else

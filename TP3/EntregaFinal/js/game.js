@@ -10,7 +10,7 @@ class Game {
         this.backgroundQuiet()
         this.hero = new Hero('character')
         this.enemy = new Enemy('monster')
-        this.enemy1 = new Enemy('monster1')
+        // this.enemy1 = new Enemy('monster1')
         this.t
         this.n
         this.points = 0
@@ -26,16 +26,14 @@ class Game {
 
     gameOver(){
         window.clearInterval(this.n)
-        // let aux = document.getElementById("number").html
-        this.state = 0
-        
+        this.state = 0        
         let x = document.getElementById("points").innerText;
         let res = document.getElementById("max-points").innerText;
         let x1 = parseInt(x)
         let res1 = parseInt(res)
         if (res1 < x1) {
             this.hero.stop()
-            this.backgroundQuiet()
+            this.backgroundStop()
             var l = document.getElementById("max-points");
             l.innerHTML = x1;
             let gameH1 = document.getElementById('begin-game')
@@ -44,32 +42,22 @@ class Game {
             //this.enemy.disappear()
         } else {
             this.hero.stop()
-            this.backgroundQuiet()
+            this.backgroundStop()
             let gameH1 = document.getElementById('begin-game')
             gameH1.innerHTML = "Perdiste! Presiona la barra para comenzar"
             gameH1.className = 'beginGameH1'
-        }
-        
-        
-        // alert(this.hero)
-        //this.hero.die()
-        
-        //this.enemy.quiet()        
-        //this.hero.quiet()
-        
-        
-        
+        }       
     }   
 
     actionHero(e) {
         if (e.keyCode == 32) {
             let gameH1 = document.getElementById('begin-game')
             if (this.state == 0) {
-                this.runSession()
-                
+                this.runSession()                
                 gameH1.innerHTML = "Presionar barra para saltar"
                 //this.enemy.runOnly()
-                this.enemy = new Enemy('monster')
+                // this.enemy = new Enemy('monster')
+                // document.getElementById('monster').style.WebkitAnimationPlayState = "running" 
                 this.enemy.atack()
                 checkState()
             } else {
@@ -117,11 +105,26 @@ class Game {
         this.background3.className = 'contain-sprite-quiet-2'
     }
 
+    backgroundStop() {
+        this.background.style.WebkitAnimationPlayState = "paused"
+        
+        this.background2.style.WebkitAnimationPlayState = "paused"
+        
+        this.background3.style.WebkitAnimationPlayState = "paused"
+
+
+        
+    }
+
     runSession() {
+        this.background.style.WebkitAnimationPlayState = "running"
+        this.background3.style.WebkitAnimationPlayState = "running"
+        this.background2.style.WebkitAnimationPlayState = "running"
         this.background.className = 'contain-sprite'
         this.background2.className = 'contain-sprite-1'
         this.background3.className = 'contain-sprite-2'
-        this.hero.run()        
+        this.hero.run()
+        this.enemy.atack()        
         this.state = 1
         var n = 0;
         var l = document.getElementById("points");
