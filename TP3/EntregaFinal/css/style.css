@@ -503,6 +503,7 @@ canvas {
 
 #begin-game {
     font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
 }
 
 #max-points {
